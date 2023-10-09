@@ -11,12 +11,12 @@ public class LightningEvent : MonoBehaviour
     private bool _tunderIsActive;
     private bool _bearInteraction;
 
-    InputMaster _controls;
+    PlayerControls _controls;
 
     private void Awake()
     {
-        _controls = new InputMaster();
-        _controls.Player.handButton.performed += ctx => HandButtonPressed();
+        _controls = new PlayerControls();
+        _controls.Gameplay.handButton.performed += ctx => HandButtonPressed();
     }
 
     void Start()
@@ -38,12 +38,12 @@ public class LightningEvent : MonoBehaviour
 
     private void OnEnable()
     {
-        _controls.Player.Enable();
+        _controls.Gameplay.Enable();
     }
 
     private void OnDisable()
     {
-        _controls.Player.Disable();
+        _controls.Gameplay.Disable();
     }
 
     IEnumerator LaunchTunder()
