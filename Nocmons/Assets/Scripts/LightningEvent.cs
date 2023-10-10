@@ -16,11 +16,12 @@ public class LightningEvent : MonoBehaviour
     private void Awake()
     {
         _controls = new PlayerControls();
-        _controls.Gameplay.handButton.performed += ctx => HandButtonPressed();
+        _controls.Gameplay.eyesButton.performed += ctx => HandButtonPressed();
     }
 
     void Start()
     {
+        _tunder.SetActive(false);
         _tunderIsActive = false;
         _bearInteraction = false;
         StartCoroutine(LaunchTunder());
@@ -49,8 +50,10 @@ public class LightningEvent : MonoBehaviour
     IEnumerator LaunchTunder()
     {
         _tunderIsActive = true;
+        _tunder.SetActive(true);
         yield return new WaitForSeconds(_tunderDuration);
         _tunderIsActive = false;
+        _tunder.SetActive(false);
         if (_bearInteraction == false && _tunderIsActive == false)
         {
             Debug.Log("tu as super peur car tu as pas cacher les yeux du nounours");

@@ -53,6 +53,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""eyesButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""a828ba84-af21-4748-b1bd-d6bca5e2fc71"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -81,11 +90,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d456fa21-06a8-4064-9599-834235cc429e"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""handButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ebdef8e-4cbc-4f0b-9fb1-b33a2ddb658e"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""eyesButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -99,6 +119,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_headButton = m_Gameplay.FindAction("headButton", throwIfNotFound: true);
         m_Gameplay_chestButton = m_Gameplay.FindAction("chestButton", throwIfNotFound: true);
         m_Gameplay_handButton = m_Gameplay.FindAction("handButton", throwIfNotFound: true);
+        m_Gameplay_eyesButton = m_Gameplay.FindAction("eyesButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,6 +184,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_headButton;
     private readonly InputAction m_Gameplay_chestButton;
     private readonly InputAction m_Gameplay_handButton;
+    private readonly InputAction m_Gameplay_eyesButton;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -170,6 +192,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @headButton => m_Wrapper.m_Gameplay_headButton;
         public InputAction @chestButton => m_Wrapper.m_Gameplay_chestButton;
         public InputAction @handButton => m_Wrapper.m_Gameplay_handButton;
+        public InputAction @eyesButton => m_Wrapper.m_Gameplay_eyesButton;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -188,6 +211,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @handButton.started += instance.OnHandButton;
             @handButton.performed += instance.OnHandButton;
             @handButton.canceled += instance.OnHandButton;
+            @eyesButton.started += instance.OnEyesButton;
+            @eyesButton.performed += instance.OnEyesButton;
+            @eyesButton.canceled += instance.OnEyesButton;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -201,6 +227,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @handButton.started -= instance.OnHandButton;
             @handButton.performed -= instance.OnHandButton;
             @handButton.canceled -= instance.OnHandButton;
+            @eyesButton.started -= instance.OnEyesButton;
+            @eyesButton.performed -= instance.OnEyesButton;
+            @eyesButton.canceled -= instance.OnEyesButton;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -223,5 +252,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnHeadButton(InputAction.CallbackContext context);
         void OnChestButton(InputAction.CallbackContext context);
         void OnHandButton(InputAction.CallbackContext context);
+        void OnEyesButton(InputAction.CallbackContext context);
     }
 }

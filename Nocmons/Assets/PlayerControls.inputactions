@@ -1,5 +1,5 @@
 {
-    "name": "InputMaster",
+    "name": "PlayerControls",
     "maps": [
         {
             "name": "Gameplay",
@@ -27,6 +27,15 @@
                     "name": "handButton",
                     "type": "Button",
                     "id": "d5a3b93a-63e3-4eff-a060-d77226209898",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "eyesButton",
+                    "type": "Button",
+                    "id": "a828ba84-af21-4748-b1bd-d6bca5e2fc71",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -59,11 +68,22 @@
                 {
                     "name": "",
                     "id": "d456fa21-06a8-4064-9599-834235cc429e",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "handButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ebdef8e-4cbc-4f0b-9fb1-b33a2ddb658e",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "eyesButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
