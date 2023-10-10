@@ -6,7 +6,8 @@ public class EventManager : MonoBehaviour
 {
     [SerializeField] private float minTimeBtwEvent;
     [SerializeField] private float maxTimeBtwEvent;
-    [SerializeField] private List<Event> listEvents = new List<Event>();
+    [SerializeField] private List<GameObject> listEventsGO = new List<GameObject>();
+    [SerializeField] private GameObject eventParent;
     private bool _canSpawn = true;
     public void Init()
     {
@@ -15,11 +16,13 @@ public class EventManager : MonoBehaviour
 
     private void SpawnRandomEvent()
     {
-        int numberOfEvents = listEvents.Count;
+        int numberOfEvents = listEventsGO.Count;
         if (numberOfEvents == 0) { return;}
         int randomEvent = Random.Range(0, numberOfEvents);
+
+        GameObject Event = Instantiate(listEventsGO[randomEvent], transform.position, Quaternion.identity);
+        Event.transform.parent = eventParent.transform;
         
-        //listEvents[randomEvent]
         TransitionToNextEvent();
     }
 
@@ -37,7 +40,5 @@ public class EventManager : MonoBehaviour
             SpawnRandomEvent();
         }
     }
-
-
 }
 
