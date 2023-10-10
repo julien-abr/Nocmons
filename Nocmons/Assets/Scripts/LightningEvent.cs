@@ -32,7 +32,7 @@ public class LightningEvent : MonoBehaviour
         if (_tunderIsActive == true)
         {
             _bearInteraction = true;
-            Debug.Log(("j'ai appuyé sur le super bouton pour les mains"));
+            Debug.Log(("j'ai appuyé sur le super bouton pour les yeux"));
         }
         
     }
@@ -50,10 +50,10 @@ public class LightningEvent : MonoBehaviour
     IEnumerator LaunchTunder()
     {
         _tunderIsActive = true;
-        _tunder.SetActive(true);
+        _tunder.SetActive(_tunderIsActive);
         yield return new WaitForSeconds(_tunderDuration);
         _tunderIsActive = false;
-        _tunder.SetActive(false);
+        _tunder.SetActive(_tunderIsActive);
         if (_bearInteraction == false && _tunderIsActive == false)
         {
             Debug.Log("tu as super peur car tu as pas cacher les yeux du nounours");
