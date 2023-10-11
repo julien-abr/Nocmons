@@ -9,7 +9,8 @@ public class ShadowEvent : Event
     private void Start()
     {
         //Take event that we need;
-        bearRef.Instance.EventHandBtn += Test;
+        BearActions actions = bearRef.Instance.GetComponent<BearActions>();
+        actions.EventHandBtn += Test;
     }
 
     private void Test()
