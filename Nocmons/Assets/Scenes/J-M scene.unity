@@ -655,9 +655,9 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 64
-  nbLightBullet: 4
-  bulletAlreadyUsed: 0
-  timeToReloadLightBullet: 10
+  numberOfBattery: 4
+  currentBattery: 0
+  timeToReloadLightBullet: 5
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
