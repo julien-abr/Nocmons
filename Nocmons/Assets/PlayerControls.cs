@@ -79,7 +79,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""38ed260c-9d3d-4558-9bcf-a51ed64e79e1"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

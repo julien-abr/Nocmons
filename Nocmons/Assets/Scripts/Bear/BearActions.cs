@@ -7,8 +7,9 @@ using UnityEngine.InputSystem;
 public class BearActions : MonoBehaviour, IBearActions
 {
     private PlayerControls _controls;
-
+    private bool _canUseInputs = true;
     public event Action EventChestBtn;
+    public event Action EventCanceledChestBtn;
     public event Action EventHideEyes;
     public event Action EventShowEyes;
     public event Action EventHandBtn;
@@ -18,6 +19,7 @@ public class BearActions : MonoBehaviour, IBearActions
         _controls = new PlayerControls();
 
         _controls.Gameplay.chestButton.performed += ctx => ChestBtn();
+        _controls.Gameplay.chestButton.canceled += ctx => CanceledChestBtn();
         _controls.Gameplay.eyesButton.performed += ctx => HideEyes();
         _controls.Gameplay.eyesButton.canceled += ctx => ShowEyes();
         _controls.Gameplay.handButton.performed += ctx => HandBtn();
@@ -26,26 +28,49 @@ public class BearActions : MonoBehaviour, IBearActions
 
     public void ChestBtn()
     {
-        EventChestBtn?.Invoke();
+        if (_canUseInputs)
+        {
+            _canUseInputs = false;
+            EventChestBtn?.Invoke();
+        }
+        
+    }
+
+    public void CanceledChestBtn()
+    {
+        EventCanceledChestBtn?.Invoke();
+        _canUseInputs = true;
     }
 
     public void HideEyes()
     {
-        EventHideEyes?.Invoke();
+        if (_canUseInputs)
+        {
+            EventHideEyes?.Invoke();
+        }
     }
 
     public void ShowEyes()
     {
-        EventShowEyes?.Invoke();
+        if (_canUseInputs)
+        {
+            EventShowEyes?.Invoke();
+        }
     }
     
     public void HandBtn()
     {
-        EventHandBtn?.Invoke();
+        if (_canUseInputs)
+        {
+            EventHandBtn?.Invoke();
+        }
     }
     public void HeadBtn()
     {
-        EventHeadBtn?.Invoke();
+        if (_canUseInputs)
+        {
+            EventHeadBtn?.Invoke();
+        }
     }
 
     private void OnEnable()
