@@ -5,13 +5,15 @@ using UnityEngine;
 public class ShadowMovement : MonoBehaviour
 {
     [SerializeField] private Transform targetObject; 
-    [SerializeField] private float moveSpeed = 5.0f; 
-
+    public float moveSpeed = 5.0f;
+    public float actualMoveSpeed;
     private Vector3 startPosition;
     private bool isMoving = false;
+    public bool cantMove;
     
     private void Start()
     {
+        actualMoveSpeed = moveSpeed;
         startPosition = transform.position;
     }
 
@@ -21,6 +23,10 @@ public class ShadowMovement : MonoBehaviour
         {
             StartCoroutine(MoveToTarget());
         }
+        if(cantMove == true)
+        {
+            StopCoroutine(MoveToTarget());
+        }
 
         if (gameObject.transform.position == targetObject.position)
         {
@@ -29,15 +35,15 @@ public class ShadowMovement : MonoBehaviour
         }
     }
     
-    private IEnumerator MoveToTarget()
+    public IEnumerator MoveToTarget()
     {
         isMoving = true;
-        float journeyLength = Vector3.Distance(startPosition, targetObject.position);
+        float journeyLength = Vector3.Distance(gameObject.transform.position, targetObject.position);
         float startTime = Time.time;
 
         while (transform.position != targetObject.position)
         {
-            float distanceCovered = (Time.time - startTime) * moveSpeed;
+            float distanceCovered = (Time.time - startTime) * actualMoveSpeed;
             float journeyFraction = distanceCovered / journeyLength;
             transform.position = Vector3.Lerp(startPosition, targetObject.position, journeyFraction);
             yield return null;
