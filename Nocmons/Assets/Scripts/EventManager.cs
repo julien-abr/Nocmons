@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
@@ -9,8 +10,15 @@ public class EventManager : MonoBehaviour
     [SerializeField] private List<GameObject> listEventsGO = new List<GameObject>();
     [SerializeField] private GameObject eventParent;
     private bool _canSpawn = true;
+
+    [Header("Event parameters")] 
+    [SerializeField] private EventParameter eventParameter;
+    private int _currentPhase;
     public void Init()
     {
+        if (!eventParameter) { return; }
+
+        WaitUntilNextPhase();
         SpawnRandomEvent();
     }
 
@@ -39,6 +47,31 @@ public class EventManager : MonoBehaviour
             yield return new WaitForSeconds(time);
             SpawnRandomEvent();
         }
+    }
+
+    private void WaitUntilNextPhase()
+    {
+        StartCoroutine(Transition(eventParameter.EventPhases[_currentPhase].PhaseDuration));
+        
+        IEnumerator Transition(float time)
+        {
+            yield return new WaitForSeconds(time);
+
+            if (_currentPhase + 1 < eventParameter.EventPhases.Length)
+            {
+                _currentPhase++;
+                WaitUntilNextPhase();
+            }
+            else if (_currentPhase + 1 == eventParameter.EventPhases.Length)
+            {
+                Win();
+            }
+        }
+    }
+
+    private void Win()
+    {
+        _canSpawn = false;
     }
 }
 

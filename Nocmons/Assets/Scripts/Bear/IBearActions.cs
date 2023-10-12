@@ -10,6 +10,7 @@ public interface IBearActions
     public virtual void HandBtn(){return;}
     public virtual void HeadBtn(){return;}*/
     void ChestBtn();
+    void CanceledChestBtn();
     void HideEyes();
     void ShowEyes();
     void HandBtn();
