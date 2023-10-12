@@ -8,6 +8,9 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject target;
 
+    public ShadowMovement _shadowMovement;
+    
+
     private bool IsVisible(Camera c, GameObject target)
     {
         var planes = GeometryUtility.CalculateFrustumPlanes(c);
@@ -26,15 +29,25 @@ public class EnemyDetection : MonoBehaviour
 
     private void Update()
     {
-        var targetRenderer = target.GetComponent<MeshRenderer>();
+        
         if (IsVisible(_camera, target))
         {
-            targetRenderer.material.SetColor("_Color", Color.red);
+            CanMove();
         }
         else
         {
-            targetRenderer.material.SetColor("_Color", Color.green);
-
+            CantMove();
         }
+    }
+
+    private void CantMove()
+    {
+        _shadowMovement.actualMoveSpeed = 0;
+    }
+
+    private void CanMove()
+    {
+        _shadowMovement.actualMoveSpeed = _shadowMovement.moveSpeed;
+
     }
 }
