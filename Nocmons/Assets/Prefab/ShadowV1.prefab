@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7100753834216797166}
   - component: {fileID: 7554324100903594087}
   - component: {fileID: 9022941595033453208}
-  - component: {fileID: -810714326808516829}
+  - component: {fileID: 8885404357900195056}
   m_Layer: 6
   m_Name: ShadowV1
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-810714326808516829
+--- !u!114 &8885404357900195056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,10 +115,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3392496506220873645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db59644bd7d30244197fe4ad54e978fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f1659faf5af4f944bc7f2813d91c67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 91393354383378290, guid: 56872708e604ec141bb77ccae09fe072,
+  _enemyTarget: {fileID: 91393354383378290, guid: 56872708e604ec141bb77ccae09fe072,
     type: 3}
-  moveSpeed: 1
-  _camera: {fileID: 735695534712728462, guid: 56872708e604ec141bb77ccae09fe072, type: 3}
+  _enemySpeed: 1
+  _actualEnemySpeed: 0
