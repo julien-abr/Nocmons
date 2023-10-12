@@ -16,9 +16,10 @@ public class EventParameter : ScriptableObject
     [Header("LighteningGlobalParam")]
     public float lighteningTimeBeforeDmg;
     public float lighteningFearPercent;
-    
-    [Header("LightGlobalParam")]
-    public float lightNumberOfBattery;
+
+    [Header("LightGlobalParam")] 
+    public float lightOnTime;
+    public int lightNumberOfBattery;
     public float lightTimeBeforeRecharging;
 
     [Header("CuddlingGlobalParam")]
