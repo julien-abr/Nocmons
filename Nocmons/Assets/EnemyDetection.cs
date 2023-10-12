@@ -5,51 +5,39 @@ using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
-    [SerializeField] private GameObject target;
+    [SerializeField] private ShadowMovementV2 _shadowMovement;
+    [SerializeField] private Camera camera; 
+    [SerializeField] private GameObject objectToDetect; 
+    [SerializeField] private float detectionDistance = 10f; 
 
-    public ShadowMovementV2 _shadowMovement;
     
-
-    private bool IsVisible(Camera c, GameObject target)
+    private void Start()
     {
-        var planes = GeometryUtility.CalculateFrustumPlanes(c);
-        var point = target.transform.position;
-        foreach (var plane in planes)
-        {
-            if (plane.GetDistanceToPoint(point) < 0)
-            {
-                return false;
-            }
-
-        }
-        return true;
+        _shadowMovement = FindObjectOfType<ShadowMovementV2>();
     }
-
-
     private void Update()
     {
-        
-        if (IsVisible(_camera, target))
+        if (objectToDetect == null || camera == null)
         {
-            CanMove();
+            return;
+        }
+
+        Vector3 screenPoint = camera.WorldToScreenPoint(objectToDetect.transform.position);
+
+        if (screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < Screen.width && screenPoint.y > 0 && screenPoint.y < Screen.height)
+        {
+            if (_shadowMovement != null)
+            {
+                _shadowMovement._actualEnemySpeed = 0;
+            }
         }
         else
         {
-            CantMove();
+            if (_shadowMovement != null)
+            {
+                _shadowMovement._actualEnemySpeed = _shadowMovement._enemySpeed;
+            }
         }
     }
-
-    private void CantMove()
-    {
-        _shadowMovement._actualEnemySpeed = 0;
-        Debug.Log("lala");
-    }
-
-    private void CanMove()
-    {
-        _shadowMovement._actualEnemySpeed = _shadowMovement._enemySpeed;
-        Debug.Log("lolo");
-
-    }
+    
 }

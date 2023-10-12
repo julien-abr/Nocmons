@@ -7,8 +7,8 @@ using UnityEngine.Serialization;
 public class ShadowMovementV2 : MonoBehaviour
 {
      [SerializeField] private Transform _enemyTarget;
-     public  float _enemySpeed;
-     public float _actualEnemySpeed;
+     public  int _enemySpeed;
+     public int _actualEnemySpeed;
 
      private void Start()
      {
