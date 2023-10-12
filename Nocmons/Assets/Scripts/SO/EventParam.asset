@@ -17,6 +17,7 @@ MonoBehaviour:
     shadowParam:
       minTimeBeforeSpawn: 6
       maxTimeBeforeSpawn: 8
+      fearPercent: 0
       shadowSpawnPoint: 00000000
       minTimeBeforeMoving: 5
       maxTimeBeforeMoving: 7
@@ -27,6 +28,7 @@ MonoBehaviour:
     shadowParam:
       minTimeBeforeSpawn: 4
       maxTimeBeforeSpawn: 6
+      fearPercent: 0
       shadowSpawnPoint: 0000000001000000
       minTimeBeforeMoving: 3
       maxTimeBeforeMoving: 5
@@ -37,9 +39,16 @@ MonoBehaviour:
     shadowParam:
       minTimeBeforeSpawn: 2
       maxTimeBeforeSpawn: 4
+      fearPercent: 0
       shadowSpawnPoint: 0000000001000000
       minTimeBeforeMoving: 2
       maxTimeBeforeMoving: 5
     lighteningParam:
       minTimeBeforeSpawn: 4
       maxTimeBeforeSpawn: 12
+  shadowTimeBeforeDmg: 2
+  shadowFearPercentPoint0: 5
+  shadowFearPercentPoint1: 15
+  shadowFearPercentPoint2: 30
+  lightTimeBeforeDmg: 2
+  lightFearPercent: 20
