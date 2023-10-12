@@ -40,6 +40,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RotateCamLeft",
+                    "type": "Button",
+                    "id": "94eb2fc1-504e-4912-8718-799d40b4b6de",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RotateCamMidle",
+                    "type": "Button",
+                    "id": "713937fc-167b-4254-be9c-92c4fce4b673",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RotateCamRight",
+                    "type": "Button",
+                    "id": "7a7ee9e1-3bff-47f6-a5a6-85f61c8f41a6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -57,7 +84,7 @@
                 {
                     "name": "",
                     "id": "38ed260c-9d3d-4558-9bcf-a51ed64e79e1",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -84,6 +111,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "eyesButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "702159ed-7911-4c13-8461-1fc73b633e2d",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ae60f2c5-ade4-49b8-b895-877b2c85a346",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamMidle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a7117524-038c-4fb4-a492-2bb0661d00b8",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

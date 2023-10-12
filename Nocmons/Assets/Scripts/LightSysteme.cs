@@ -6,18 +6,17 @@ using UnityEngine;
 
 public class LightSysteme : MonoBehaviour
 {
-    [SerializeField] private Transform raycastOrigin; // Le point de départ du raycast
+    [SerializeField] private Transform raycastOrigin; // Le point de dÃ©part du raycast
     [SerializeField] private float raycastDistance = 10f; // La distance du raycast
-    [SerializeField] private LayerMask hitLayer; // Les couches à prendre en compte pour le raycast
+    [SerializeField] private LayerMask hitLayer; // Les couches Ã  prendre en compte pour le raycast
     PlayerControls _controls;
 
-    [SerializeField] private int nbLightBullet;
-    [SerializeField] private int bulletAlreadyUsed;
+    [SerializeField] private int numberOfBattery;
+    [SerializeField] private int currentBattery;
     [SerializeField] private float timeToReloadLightBullet;
+    private int _batteryToRecharge;
 
-
-    private bool canReload = false;
-
+    private bool isRecharging;
     private void Awake()
     {
         _controls = new PlayerControls();
@@ -26,7 +25,7 @@ public class LightSysteme : MonoBehaviour
 
     private void Start()
     {
-        bulletAlreadyUsed = 0;
+        currentBattery = numberOfBattery;
     }
     void HandButtonPressed()
     {
@@ -35,30 +34,49 @@ public class LightSysteme : MonoBehaviour
 
     void ShootRaycast()
     {
-        if (bulletAlreadyUsed < nbLightBullet)
+        if (currentBattery > 0)
         {
-            bulletAlreadyUsed++;
-
+            currentBattery--;
+            _batteryToRecharge++;
             Ray ray = new Ray(raycastOrigin.position, raycastOrigin.forward);
-
             RaycastHit hit;
-
             // Effectue le raycast
             if (Physics.Raycast(ray, out hit, raycastDistance, hitLayer))
             {
                 Destroy(hit.collider.gameObject);
             }
             Debug.Log("je tire un raycast");
-            StartCoroutine(ReloadLight());
+            if (!isRecharging)
+            {
+                Recharge();
+            }
+            else
+            {
+                StopAllCoroutines();
+                Recharge();
+            }
 
 
         }
     }
-    IEnumerator ReloadLight()
+    void Recharge()
     {
+        if (_batteryToRecharge > 0)
+        {
+            isRecharging = true;
 
-        yield return new WaitForSeconds(timeToReloadLightBullet);
-        bulletAlreadyUsed--;
+            StartCoroutine(RechargeBattery());
+            
+            IEnumerator RechargeBattery()
+            {
+                yield return new WaitForSeconds(timeToReloadLightBullet);
+                currentBattery++;
+                _batteryToRecharge--;
+                isRecharging = false;
+                Recharge();
+            }
+        }
+
     }
     
     private void OnDrawGizmos()
