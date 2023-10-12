@@ -8,7 +8,7 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject target;
 
-    public ShadowMovement _shadowMovement;
+    public ShadowMovementV2 _shadowMovement;
     
 
     private bool IsVisible(Camera c, GameObject target)
@@ -42,12 +42,14 @@ public class EnemyDetection : MonoBehaviour
 
     private void CantMove()
     {
-        _shadowMovement.actualMoveSpeed = 0;
+        _shadowMovement._actualEnemySpeed = 0;
+        Debug.Log("lala");
     }
 
     private void CanMove()
     {
-        _shadowMovement.actualMoveSpeed = _shadowMovement.moveSpeed;
+        _shadowMovement._actualEnemySpeed = _shadowMovement._enemySpeed;
+        Debug.Log("lolo");
 
     }
 }
