@@ -3,17 +3,26 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class LightSysteme : MonoBehaviour
 {
     [SerializeField] private Transform raycastOrigin; // Le point de départ du raycast
     [SerializeField] private float raycastDistance = 10f; // La distance du raycast
     [SerializeField] private LayerMask hitLayer; // Les couches à prendre en compte pour le raycast
+    
+    
     PlayerControls _controls;
 
     [SerializeField] private int numberOfBattery;
     [SerializeField] private int currentBattery;
     [SerializeField] private float timeToReloadLightBullet;
+
+
+    [FormerlySerializedAs("_Light")] [SerializeField] private GameObject _light;
+    [SerializeField] private float _lightDuration = 2f;
+    private bool usingLight;
+    
     private int _batteryToRecharge;
 
     private bool isRecharging;
@@ -34,12 +43,13 @@ public class LightSysteme : MonoBehaviour
 
     void ShootRaycast()
     {
-        if (currentBattery > 0)
+        if (currentBattery > 0 && !usingLight)
         {
             currentBattery--;
             _batteryToRecharge++;
             Ray ray = new Ray(raycastOrigin.position, raycastOrigin.forward);
             RaycastHit hit;
+            StartCoroutine(LightDuration());
             // Effectue le raycast
             if (Physics.Raycast(ray, out hit, raycastDistance, hitLayer))
             {
@@ -77,6 +87,16 @@ public class LightSysteme : MonoBehaviour
             }
         }
 
+    }
+
+    private IEnumerator LightDuration()
+    {
+        usingLight = true;
+        _light.SetActive(true);
+        yield return new WaitForSeconds(_lightDuration);
+        Debug.Log("je passe en false les cops");
+        _light.SetActive(false);
+        usingLight = false;
     }
     
     private void OnDrawGizmos()

@@ -45,3 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bearRef: {fileID: 11400000, guid: 5b8edc3bcd0d8ac49a856277e235f30f, type: 2}
+  spawnPoints:
+  - {fileID: 1152340018147951790, guid: bcfbd1d5c050c5a4ea3554022cae8f5b, type: 3}
+  - {fileID: 4291161771457591611, guid: 655a185328b26384a9e4bfaddaea95de, type: 3}
+  - {fileID: 6516741582664959645, guid: 8077a4af3e69f5f42b904bc27937a467, type: 3}
+  objectToSpawn: {fileID: 3392496506220873645, guid: 146f34d0778034549943419128ea6d46,
+    type: 3}
+  minSpawnTime: 2
+  maxSpawnTime: 5
