@@ -9,7 +9,7 @@ public class ShadowMovement : MonoBehaviour
 
     private Vector3 startPosition;
     private bool isMoving = false;
-
+    
     private void Start()
     {
         startPosition = transform.position;
@@ -42,7 +42,6 @@ public class ShadowMovement : MonoBehaviour
             transform.position = Vector3.Lerp(startPosition, targetObject.position, journeyFraction);
             yield return null;
         }
-
         isMoving = false;
     }
 }

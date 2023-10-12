@@ -121,3 +121,4 @@ MonoBehaviour:
   targetObject: {fileID: 91393354383378290, guid: 56872708e604ec141bb77ccae09fe072,
     type: 3}
   moveSpeed: 1
+  _camera: {fileID: 735695534712728462, guid: 56872708e604ec141bb77ccae09fe072, type: 3}
