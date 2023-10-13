@@ -44,9 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0440b7773b272da42bcdf1b560a55ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shadowMovement: {fileID: 8885404357900195056, guid: 146f34d0778034549943419128ea6d46,
-    type: 3}
-  camera: {fileID: 735695534712728462, guid: 56872708e604ec141bb77ccae09fe072, type: 3}
-  objectToDetect: {fileID: 3392496506220873645, guid: 146f34d0778034549943419128ea6d46,
-    type: 3}
+  _shadowMovement: {fileID: 0}
+  camera: {fileID: 0}
+  objectToDetect: {fileID: 0}
   detectionDistance: 10
+  timeForFear: 2
