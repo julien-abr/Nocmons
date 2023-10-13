@@ -58,3 +58,4 @@ MonoBehaviour:
   cuddlingFearPercent: 2
   bearSpeakingFearPercent: 20
   bearSpeakingNumberOfBatteryNeeded: 3
+  cameraRotateSpeed: 3

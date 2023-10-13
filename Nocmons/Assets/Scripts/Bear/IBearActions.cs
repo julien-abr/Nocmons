@@ -11,9 +11,13 @@ public interface IBearActions
     public virtual void HeadBtn(){return;}*/
     void ChestBtn();
     void CanceledChestBtn();
-    void HideEyes();
-    void ShowEyes();
+    void HideLeftEye();
+    void HideRightEye();
+    void ShowLeftEye();
+    void ShowRightEye();
     void HandBtn();
     void HeadBtn();
-
+    void CamRotLeft();
+    void CamRotRight();
+    void CamRotMiddle();
 }

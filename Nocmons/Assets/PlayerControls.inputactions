@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "eyesButton",
+                    "name": "eyesLeftButton",
                     "type": "Button",
                     "id": "a828ba84-af21-4748-b1bd-d6bca5e2fc71",
                     "expectedControlType": "Button",
@@ -63,6 +63,15 @@
                     "name": "RotateCamRight",
                     "type": "Button",
                     "id": "7a7ee9e1-3bff-47f6-a5a6-85f61c8f41a6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "eyesRightButton",
+                    "type": "Button",
+                    "id": "5766582b-49a8-4e80-adef-4b88e58739b4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -106,11 +115,11 @@
                 {
                     "name": "",
                     "id": "1ebdef8e-4cbc-4f0b-9fb1-b33a2ddb658e",
-                    "path": "<Keyboard>/n",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "eyesButton",
+                    "action": "eyesLeftButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -144,6 +153,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RotateCamRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d9344ac-6cb3-4f4c-8d45-34cd8408f94f",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "eyesRightButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
