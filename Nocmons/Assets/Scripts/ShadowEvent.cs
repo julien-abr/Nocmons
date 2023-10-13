@@ -14,18 +14,7 @@ public class ShadowEvent : Event
     private void Start()
     {
         StartCoroutine(SpawnObject());
-
-        //Take event that we need;
-        
-        BearActions actions = bearRef.Instance.GetComponent<BearActions>();
-        actions.EventHandBtn += Test;
     }
-
-    private void Test()
-    {
-        Debug.Log("Pressed P");
-    }
-    
     
     private IEnumerator SpawnObject()
     {
@@ -34,7 +23,8 @@ public class ShadowEvent : Event
         
         
         
-        Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
+        GameObject go = Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
+        bearRef.Instance.GetComponent<EnemyDetection>().AddShadow(go);
         //ajouter un bruit pour savoir qu'une ombre a été instancié
         
         
@@ -42,7 +32,6 @@ public class ShadowEvent : Event
         float randomSpawnTime = Random.Range(minSpawnTime, maxSpawnTime);
         yield return new WaitForSeconds(randomSpawnTime);
 
-        StartCoroutine((SpawnObject()));
     }
     
 }
