@@ -13,11 +13,19 @@ public class EventManager : MonoBehaviour
 
     [Header("Event parameters")] 
     [SerializeField] private EventParameter eventParameter;
+    
+    [Header("Bear Ref")] 
+    [SerializeField] private BearReference bearReference;
+    private BearState bearState;
+    
     private int _currentPhase;
     public void Init()
     {
         if (!eventParameter) { return; }
 
+        bearState = bearReference.Instance.GetComponent<BearState>();
+        bearState.OnWin += StopSpawn;
+        bearState.OnDied += StopSpawn;
         WaitUntilNextPhase();
         SpawnRandomEvent();
     }
@@ -64,12 +72,12 @@ public class EventManager : MonoBehaviour
             }
             else if (_currentPhase + 1 == eventParameter.EventPhases.Length)
             {
-                Win();
+                bearState.Win();
             }
         }
     }
 
-    private void Win()
+    private void StopSpawn()
     {
         _canSpawn = false;
     }

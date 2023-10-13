@@ -2,29 +2,43 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BearState : MonoBehaviour
 {
-    private float maxFearValue = 100;
+    //Inspector var
+    [SerializeField] private EventParameter eventParameter;
+    [SerializeField] private LightSystem lightsystem;
+    
+    //Fear value
+    private const float _maxFearValue = 100;
     [SerializeField] private float currentFearValue;
     public float CurrentFearValue => currentFearValue;
-    public float MaxFearValue => maxFearValue;
-    public bool IsDead => currentFearValue >= maxFearValue;
+    public float MaxFearValue => _maxFearValue;
+    public bool IsDead => currentFearValue >= _maxFearValue;
 
+    //Cuddling
     private bool _isCuddling = false;
     private float _currentTime;
-
-    [Header("Param"), Tooltip("how many fear percent we loose by seconds when cuddling")] 
-    [SerializeField] private float cuddlingPercentValue;
+    private float _cuddlingPercentValue;
     
-    //[Header("LightVariables")]
+    //Bear Speaking
+    private float _bearSpeakingPercentValue;
+    private int _bearSpeakingBatteryNeeded;
     
+    //Events
+    public event Action OnDied;
+    public event Action OnWin;
 
     void Start()
     {
+        _cuddlingPercentValue = eventParameter.cuddlingFearPercent;
+        _bearSpeakingPercentValue = eventParameter.bearSpeakingFearPercent;
+        _bearSpeakingBatteryNeeded = eventParameter.bearSpeakingNumberOfBatteryNeeded;
         BearActions actions = GetComponent<BearActions>();
         actions.EventChestBtn += StartCuddling;
         actions.EventCanceledChestBtn += StopCuddling;
+        actions.EventHeadBtn += BearSpeaking;
     }
 
     private void Update()
@@ -37,7 +51,7 @@ public class BearState : MonoBehaviour
 
                 if (_currentTime >= 1f)
                 {
-                    RemoveFear(cuddlingPercentValue);
+                    RemoveFear(_cuddlingPercentValue);
                     _currentTime = 0;
                 }
             }
@@ -46,10 +60,12 @@ public class BearState : MonoBehaviour
 
     public void TakeFear(float amount)
     {
-        if (!IsDead)
+        if (IsDead)
         {
-            currentFearValue = Mathf.Clamp(currentFearValue + amount, 0f, maxFearValue);
+            Die();
+            return;
         }
+        currentFearValue = Mathf.Clamp(currentFearValue + amount, 0f, _maxFearValue);
 
         if (IsDead)
         {
@@ -59,19 +75,28 @@ public class BearState : MonoBehaviour
     
     public void RemoveFear(float amount)
     {
-        if (!IsDead)
+        if (IsDead)
         {
-            currentFearValue = Mathf.Clamp(currentFearValue - amount, 0f, maxFearValue);
+            Die();
+            return;
         }
+        
+        currentFearValue = Mathf.Clamp(currentFearValue - amount, 0f, _maxFearValue);
     }
     
     //public void 
 
-    private void Die()
+    public void Die()
     {
-        
+        Debug.Log("Loose");
+        OnDied?.Invoke();
     }
 
+    public void Win()
+    {
+        Debug.Log("Win");
+        OnWin?.Invoke();
+    }
     private void StartCuddling()
     {
         _isCuddling = true;
@@ -81,6 +106,17 @@ public class BearState : MonoBehaviour
     {
         _isCuddling = false;
         _currentTime = 0;
+    }
+
+    private void BearSpeaking()
+    {
+        if (lightsystem.CurrentBattery >= _bearSpeakingBatteryNeeded)
+        {
+            //Sound bear speaking
+            RemoveFear(_bearSpeakingPercentValue);
+            lightsystem.RemoveBattery(_bearSpeakingBatteryNeeded);
+            lightsystem.Recharge(_bearSpeakingBatteryNeeded);
+        }
     }
     
 }
