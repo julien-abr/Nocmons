@@ -455,11 +455,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862d0cd46541f6f4cb51facabea3da53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 6267694681463742303}
-  _timeToRotate: 3
-  _cameraLeft: {x: 0, y: -43.549, z: 0}
+  bearRef: {fileID: 11400000, guid: 5b8edc3bcd0d8ac49a856277e235f30f, type: 2}
+  eventParameter: {fileID: 11400000, guid: e41027cab5b7a6b4db0f836fa7cffc40, type: 2}
+  _cameraLeft: {x: 0, y: -45, z: 0}
   _cameraMidle: {x: 0, y: 0, z: 0}
-  _cameraRight: {x: 0, y: 43.549, z: 0}
+  _cameraRight: {x: 0, y: 45, z: 0}
 --- !u!1 &6971319940566336518
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventParameter: {fileID: 11400000, guid: e41027cab5b7a6b4db0f836fa7cffc40, type: 2}
   lightsystem: {fileID: 7335500748748621193}
-  currentFearValue: 100
+  currentFearValue: 50
 --- !u!114 &7335500748748621193
 MonoBehaviour:
   m_ObjectHideFlags: 0

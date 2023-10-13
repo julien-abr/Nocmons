@@ -55,7 +55,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""eyesButton"",
+                    ""name"": ""eyesLeftButton"",
                     ""type"": ""Button"",
                     ""id"": ""a828ba84-af21-4748-b1bd-d6bca5e2fc71"",
                     ""expectedControlType"": ""Button"",
@@ -85,6 +85,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""RotateCamRight"",
                     ""type"": ""Button"",
                     ""id"": ""7a7ee9e1-3bff-47f6-a5a6-85f61c8f41a6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""eyesRightButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""5766582b-49a8-4e80-adef-4b88e58739b4"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -128,11 +137,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1ebdef8e-4cbc-4f0b-9fb1-b33a2ddb658e"",
-                    ""path"": ""<Keyboard>/n"",
+                    ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""eyesButton"",
+                    ""action"": ""eyesLeftButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -168,6 +177,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""RotateCamRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d9344ac-6cb3-4f4c-8d45-34cd8408f94f"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""eyesRightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -179,10 +199,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_headButton = m_Gameplay.FindAction("headButton", throwIfNotFound: true);
         m_Gameplay_chestButton = m_Gameplay.FindAction("chestButton", throwIfNotFound: true);
         m_Gameplay_handButton = m_Gameplay.FindAction("handButton", throwIfNotFound: true);
-        m_Gameplay_eyesButton = m_Gameplay.FindAction("eyesButton", throwIfNotFound: true);
+        m_Gameplay_eyesLeftButton = m_Gameplay.FindAction("eyesLeftButton", throwIfNotFound: true);
         m_Gameplay_RotateCamLeft = m_Gameplay.FindAction("RotateCamLeft", throwIfNotFound: true);
         m_Gameplay_RotateCamMidle = m_Gameplay.FindAction("RotateCamMidle", throwIfNotFound: true);
         m_Gameplay_RotateCamRight = m_Gameplay.FindAction("RotateCamRight", throwIfNotFound: true);
+        m_Gameplay_eyesRightButton = m_Gameplay.FindAction("eyesRightButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -247,10 +268,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_headButton;
     private readonly InputAction m_Gameplay_chestButton;
     private readonly InputAction m_Gameplay_handButton;
-    private readonly InputAction m_Gameplay_eyesButton;
+    private readonly InputAction m_Gameplay_eyesLeftButton;
     private readonly InputAction m_Gameplay_RotateCamLeft;
     private readonly InputAction m_Gameplay_RotateCamMidle;
     private readonly InputAction m_Gameplay_RotateCamRight;
+    private readonly InputAction m_Gameplay_eyesRightButton;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -258,10 +280,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @headButton => m_Wrapper.m_Gameplay_headButton;
         public InputAction @chestButton => m_Wrapper.m_Gameplay_chestButton;
         public InputAction @handButton => m_Wrapper.m_Gameplay_handButton;
-        public InputAction @eyesButton => m_Wrapper.m_Gameplay_eyesButton;
+        public InputAction @eyesLeftButton => m_Wrapper.m_Gameplay_eyesLeftButton;
         public InputAction @RotateCamLeft => m_Wrapper.m_Gameplay_RotateCamLeft;
         public InputAction @RotateCamMidle => m_Wrapper.m_Gameplay_RotateCamMidle;
         public InputAction @RotateCamRight => m_Wrapper.m_Gameplay_RotateCamRight;
+        public InputAction @eyesRightButton => m_Wrapper.m_Gameplay_eyesRightButton;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -280,9 +303,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @handButton.started += instance.OnHandButton;
             @handButton.performed += instance.OnHandButton;
             @handButton.canceled += instance.OnHandButton;
-            @eyesButton.started += instance.OnEyesButton;
-            @eyesButton.performed += instance.OnEyesButton;
-            @eyesButton.canceled += instance.OnEyesButton;
+            @eyesLeftButton.started += instance.OnEyesLeftButton;
+            @eyesLeftButton.performed += instance.OnEyesLeftButton;
+            @eyesLeftButton.canceled += instance.OnEyesLeftButton;
             @RotateCamLeft.started += instance.OnRotateCamLeft;
             @RotateCamLeft.performed += instance.OnRotateCamLeft;
             @RotateCamLeft.canceled += instance.OnRotateCamLeft;
@@ -292,6 +315,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @RotateCamRight.started += instance.OnRotateCamRight;
             @RotateCamRight.performed += instance.OnRotateCamRight;
             @RotateCamRight.canceled += instance.OnRotateCamRight;
+            @eyesRightButton.started += instance.OnEyesRightButton;
+            @eyesRightButton.performed += instance.OnEyesRightButton;
+            @eyesRightButton.canceled += instance.OnEyesRightButton;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -305,9 +331,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @handButton.started -= instance.OnHandButton;
             @handButton.performed -= instance.OnHandButton;
             @handButton.canceled -= instance.OnHandButton;
-            @eyesButton.started -= instance.OnEyesButton;
-            @eyesButton.performed -= instance.OnEyesButton;
-            @eyesButton.canceled -= instance.OnEyesButton;
+            @eyesLeftButton.started -= instance.OnEyesLeftButton;
+            @eyesLeftButton.performed -= instance.OnEyesLeftButton;
+            @eyesLeftButton.canceled -= instance.OnEyesLeftButton;
             @RotateCamLeft.started -= instance.OnRotateCamLeft;
             @RotateCamLeft.performed -= instance.OnRotateCamLeft;
             @RotateCamLeft.canceled -= instance.OnRotateCamLeft;
@@ -317,6 +343,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @RotateCamRight.started -= instance.OnRotateCamRight;
             @RotateCamRight.performed -= instance.OnRotateCamRight;
             @RotateCamRight.canceled -= instance.OnRotateCamRight;
+            @eyesRightButton.started -= instance.OnEyesRightButton;
+            @eyesRightButton.performed -= instance.OnEyesRightButton;
+            @eyesRightButton.canceled -= instance.OnEyesRightButton;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -339,9 +368,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnHeadButton(InputAction.CallbackContext context);
         void OnChestButton(InputAction.CallbackContext context);
         void OnHandButton(InputAction.CallbackContext context);
-        void OnEyesButton(InputAction.CallbackContext context);
+        void OnEyesLeftButton(InputAction.CallbackContext context);
         void OnRotateCamLeft(InputAction.CallbackContext context);
         void OnRotateCamMidle(InputAction.CallbackContext context);
         void OnRotateCamRight(InputAction.CallbackContext context);
+        void OnEyesRightButton(InputAction.CallbackContext context);
     }
 }
