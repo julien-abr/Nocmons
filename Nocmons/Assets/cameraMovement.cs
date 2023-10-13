@@ -15,9 +15,9 @@ public class cameraMovement : MonoBehaviour
     private GameObject camera;
     private float _timeToRotate;
     
-    [SerializeField] private Vector3 _cameraLeft;
-    [SerializeField] private Vector3 _cameraMidle;
-    [SerializeField] private Vector3 _cameraRight;
+    private Vector3 _cameraLeft;
+    private Vector3 _cameraMiddle;
+    private Vector3 _cameraRight;
 
     private BearActions _bearActions;
 
@@ -29,6 +29,9 @@ public class cameraMovement : MonoBehaviour
         _bearActions.EventCamRotateMiddle += RotateCameMiddle;
         _bearActions.EventCamRotateRight += RotateCameRight;
         _timeToRotate = eventParameter.cameraRotateSpeed;
+        _cameraLeft = eventParameter.cameraLeft;
+        _cameraRight = eventParameter.cameraRight;
+        _cameraMiddle = eventParameter.cameraMiddle;
     }
 
     void RotateCameLeft()
@@ -42,6 +45,6 @@ public class cameraMovement : MonoBehaviour
     }
     void RotateCameMiddle()
     {
-        camera.transform.DORotate(_cameraMidle, _timeToRotate, RotateMode.Fast);
+        camera.transform.DORotate(_cameraMiddle, _timeToRotate, RotateMode.Fast);
     }
 }

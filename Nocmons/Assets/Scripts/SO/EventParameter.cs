@@ -29,8 +29,11 @@ public class EventParameter : ScriptableObject
     public float bearSpeakingFearPercent;
     public int bearSpeakingNumberOfBatteryNeeded;
 
-    [Header("CamRotateSpeed")] 
+    [Header("CameraGlobalParam")] 
     public float cameraRotateSpeed;
+    public Vector3 cameraLeft;
+    public Vector3 cameraMiddle;
+    public Vector3 cameraRight;
 }
 
 [System.Serializable]
