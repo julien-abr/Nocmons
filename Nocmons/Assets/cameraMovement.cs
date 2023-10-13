@@ -1,49 +1,50 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 
 
 
 public class cameraMovement : MonoBehaviour
 {
-    PlayerControls _controls;
-    [SerializeField] private GameObject _camera;
-    [SerializeField] private float _timeToRotate;
+    [SerializeField] private BearReference bearRef;
+    [SerializeField] private EventParameter eventParameter;
+    private GameObject camera;
+    private float _timeToRotate;
     
-    [SerializeField] private Vector3 _cameraLeft;
-    [SerializeField] private Vector3 _cameraMidle;
-    [SerializeField] private Vector3 _cameraRight;
-    private void Awake()
+    private Vector3 _cameraLeft;
+    private Vector3 _cameraMiddle;
+    private Vector3 _cameraRight;
+
+    private BearActions _bearActions;
+
+    private void Start()
     {
-        _controls = new PlayerControls();
-        _controls.Gameplay.RotateCamLeft.performed += ctx => RotateCameLeft();
-        _controls.Gameplay.RotateCamMidle.performed += ctx => RotateCameMidle();
-        _controls.Gameplay.RotateCamRight.performed += ctx => RotateCameRight();
+        camera = this.gameObject;
+        _bearActions = bearRef.Instance.GetComponent<BearActions>();
+        _bearActions.EventCamRotateLeft += RotateCameLeft;
+        _bearActions.EventCamRotateMiddle += RotateCameMiddle;
+        _bearActions.EventCamRotateRight += RotateCameRight;
+        _timeToRotate = eventParameter.cameraRotateSpeed;
+        _cameraLeft = eventParameter.cameraLeft;
+        _cameraRight = eventParameter.cameraRight;
+        _cameraMiddle = eventParameter.cameraMiddle;
     }
-    
+
     void RotateCameLeft()
     {
-        _camera.transform.DORotate(_cameraLeft, _timeToRotate, RotateMode.Fast);
+        camera.transform.DORotate(_cameraLeft, _timeToRotate, RotateMode.Fast);
     }
     void RotateCameRight()
     {
-        _camera.transform.DORotate(_cameraRight, _timeToRotate, RotateMode.Fast);
+        camera.transform.DORotate(_cameraRight, _timeToRotate, RotateMode.Fast);
 
     }
-    void RotateCameMidle()
+    void RotateCameMiddle()
     {
-        _camera.transform.DORotate(_cameraMidle, _timeToRotate, RotateMode.Fast);
-
-    }
-    private void OnEnable()
-    {
-        _controls.Gameplay.Enable();
-    }
-
-    private void OnDisable()
-    {
-        _controls.Gameplay.Disable();
+        camera.transform.DORotate(_cameraMiddle, _timeToRotate, RotateMode.Fast);
     }
 }
