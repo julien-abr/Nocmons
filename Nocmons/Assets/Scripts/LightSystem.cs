@@ -8,21 +8,19 @@ using UnityEngine.Serialization;
 public class LightSystem : MonoBehaviour
 {
     [SerializeField] private EventParameter eventParameter;
-    [SerializeField] private BearReference _bearReference;
+    [SerializeField] private BearReference bearReference;
     
     private int _maxNumberOfBattery;
     private int _currentBattery;
     public int CurrentBattery => _currentBattery;
     private float _timeToRecharge;
-    private int _batteryToRecharge;
 
     [SerializeField] private GameObject _light;
     private bool usingLight;
     private float _lightDuration;
-    private bool isRecharging;
     private void Start()
     {
-        _bearReference.Instance.GetComponent<BearActions>().EventHandBtn += HandButtonPressed;
+        bearReference.Instance.GetComponent<BearActions>().EventHandBtn += HandButtonPressed;
         _maxNumberOfBattery = eventParameter.lightNumberOfBattery;
         _timeToRecharge = eventParameter.lightTimeBeforeRecharging;
         _lightDuration = eventParameter.lightOnTime;
@@ -39,30 +37,37 @@ public class LightSystem : MonoBehaviour
         {
             _currentBattery--;
 
-            StartCoroutine(LightDuration(_lightDuration));
-            Recharge();
+            ActivateLight();
+            Recharge(1);
         }
     }
-    void Recharge()
+    public void Recharge(int amount)
     {
         StartCoroutine(RechargeBattery(_timeToRecharge));
         IEnumerator RechargeBattery(float time)
         {
-            yield return new WaitForSeconds(time);
-            _currentBattery++;
-            _batteryToRecharge--;
-            isRecharging = false;
-            Recharge();
+            yield return new WaitForSeconds(time * amount);
+            _currentBattery += amount;
         }   
     }
-    
-    
-    private IEnumerator LightDuration(float time)
+
+
+    private void ActivateLight()
     {
-        usingLight = true;
-        _light.SetActive(true);
-        yield return new WaitForSeconds(time);
-        _light.SetActive(false);
-        usingLight = false;
+        StartCoroutine(LightDuration(_lightDuration));
+        
+        IEnumerator LightDuration(float time)
+        {
+            usingLight = true;
+            _light.SetActive(true);
+            yield return new WaitForSeconds(time);
+            _light.SetActive(false);
+            usingLight = false;
+        }
+    }
+
+    public void RemoveBattery(int amount)
+    {
+        _currentBattery = Mathf.Clamp(_currentBattery -= amount, 0, _maxNumberOfBattery);
     }
 }
