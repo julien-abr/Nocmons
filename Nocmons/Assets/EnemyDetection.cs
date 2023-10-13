@@ -13,10 +13,7 @@ public class EnemyDetection : MonoBehaviour
     private bool isCoroutineRunning = false;
 
     
-    private void Start()
-    {
-        _shadowMovement = FindObjectOfType<ShadowMovementV2>();
-    }
+    
     private void Update()
     {
         if (objectToDetect == null || camera == null)
