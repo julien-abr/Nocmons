@@ -388,7 +388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &984097942
 Transform:
   m_ObjectHideFlags: 0
@@ -1080,6 +1080,11 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 7156632870270955385}
+    - target: {fileID: 1455213772779641320, guid: 1b3c448f34e7d1d48a0887dddabbdacf,
+        type: 3}
+      propertyPath: timeForFear
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1455213772779641320, guid: 1b3c448f34e7d1d48a0887dddabbdacf,
         type: 3}
       propertyPath: objectToDetect
