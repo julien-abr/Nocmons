@@ -50,5 +50,11 @@ MonoBehaviour:
   shadowFearPercentPoint0: 5
   shadowFearPercentPoint1: 15
   shadowFearPercentPoint2: 30
-  lightTimeBeforeDmg: 2
-  lightFearPercent: 20
+  lighteningTimeBeforeDmg: 2
+  lighteningFearPercent: 20
+  lightOnTime: 2
+  lightNumberOfBattery: 4
+  lightTimeBeforeRecharging: 10
+  cuddlingFearPercent: 2
+  bearSpeakingFearPercent: 20
+  bearSpeakingNumberOfBatteryNeeded: 3
