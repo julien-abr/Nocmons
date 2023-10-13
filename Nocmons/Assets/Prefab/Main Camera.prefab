@@ -477,6 +477,7 @@ GameObject:
   - component: {fileID: 251355053056510835}
   - component: {fileID: 5133883236965170556}
   - component: {fileID: 7335500748748621193}
+  - component: {fileID: 1855674966128405292}
   m_Layer: 0
   m_Name: TeddyBear
   m_TagString: Untagged
@@ -627,6 +628,23 @@ MonoBehaviour:
   eventParameter: {fileID: 11400000, guid: e41027cab5b7a6b4db0f836fa7cffc40, type: 2}
   bearReference: {fileID: 11400000, guid: 5b8edc3bcd0d8ac49a856277e235f30f, type: 2}
   _light: {fileID: 4874298094960064580}
+--- !u!114 &1855674966128405292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971319940566336518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0440b7773b272da42bcdf1b560a55ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shadowMovement: {fileID: 0}
+  camera: {fileID: 735695534712728462}
+  objectToDetect: {fileID: 0}
+  detectionDistance: 10
+  timeForFear: 2
 --- !u!1001 &2872425233059547195
 PrefabInstance:
   m_ObjectHideFlags: 0

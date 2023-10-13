@@ -7,13 +7,19 @@ public class EnemyDetection : MonoBehaviour
 {
     [SerializeField] private ShadowMovementV2 _shadowMovement;
     [SerializeField] private Camera camera; 
-    [SerializeField] private GameObject objectToDetect; 
+    
+    private GameObject objectToDetect; 
     [SerializeField] private float detectionDistance = 10f;
     [SerializeField] private float timeForFear;
     private bool isCoroutineRunning = false;
 
-    
-    
+
+    public void AddShadow(GameObject shadow)
+    {
+        Debug.Log(shadow.name);
+        objectToDetect = shadow;
+        _shadowMovement = objectToDetect.GetComponent<ShadowMovementV2>();
+    }
     private void Update()
     {
         if (objectToDetect == null || camera == null)
