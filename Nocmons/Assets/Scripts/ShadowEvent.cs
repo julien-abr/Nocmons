@@ -7,31 +7,31 @@ using Random = UnityEngine.Random;
 public class ShadowEvent : Event
 {
     [SerializeField] private BearReference bearRef;
+    [SerializeField] private EventParameter eventParameter;
     [SerializeField] private Transform[] spawnPoints; 
-    [SerializeField] private GameObject objectToSpawn; 
-    [SerializeField] private float minSpawnTime = 2.0f; 
-    [SerializeField] private float maxSpawnTime = 5.0f; 
-    private void Start()
+    [SerializeField] private GameObject objectToSpawn;
+    public void Init(int currentPhase)
     {
-        StartCoroutine(SpawnObject());
+        var spawnPointList = eventParameter.EventPhases[currentPhase].shadowParam.shadowSpawnPoint;
+        int randomSpawn = Random.Range(0, spawnPointList.Count);
+        float minSpeed = eventParameter.EventPhases[currentPhase].shadowParam.minTimeBeforeMoving;
+        float maxSpeed = eventParameter.EventPhases[currentPhase].shadowParam.maxTimeBeforeSpawn;
+        float randomSpeed = Random.Range(minSpeed, maxSpeed);
+        
+        StartEvent(randomSpawn, randomSpeed);
     }
-    
-    private IEnumerator SpawnObject()
+    void StartEvent(int spawnPoint, float randomSpeed)
     {
-        int randomSpawnIndex = Random.Range(0, spawnPoints.Length);
-        Transform spawnPoint = spawnPoints[randomSpawnIndex];
+        Transform spawnTransform = spawnPoints[spawnPoint];
         
-        
-        
-        GameObject go = Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
-        bearRef.Instance.GetComponent<EnemyDetection>().AddShadow(go);
-        //ajouter un bruit pour savoir qu'une ombre a été instancié
-        
-        
-        
-        float randomSpawnTime = Random.Range(minSpawnTime, maxSpawnTime);
-        yield return new WaitForSeconds(randomSpawnTime);
+        GameObject go = Instantiate(objectToSpawn, spawnTransform.position, spawnTransform.rotation);
+        float timeBeforeDmg = eventParameter.shadowTimeBeforeDmg;
+        float dmg0 = eventParameter.shadowFearPercentPoint0;
+        float dmg1 = eventParameter.shadowFearPercentPoint1;
+        float dmg2 = eventParameter.shadowFearPercentPoint2;
+        go.GetComponent<ShadowMovementV2>().Init(randomSpeed,timeBeforeDmg, dmg0, dmg1, dmg2, bearRef);
+        bearRef.Instance.GetComponent<EnemyDetection>().AddObject(go);
+        //add sound
+    }
 
-    }
-    
 }
