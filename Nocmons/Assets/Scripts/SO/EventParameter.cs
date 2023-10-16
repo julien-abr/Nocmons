@@ -49,7 +49,6 @@ public class ShadowParam
 {
     public float minTimeBeforeSpawn;
     public float maxTimeBeforeSpawn;
-    public float fearPercent;
     public List<int> shadowSpawnPoint = new List<int>();
     public float minTimeBeforeMoving;
     public float maxTimeBeforeMoving;

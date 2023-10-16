@@ -18,7 +18,7 @@ public class LightningEvent : MonoBehaviour
 
     private BearState bearState;
 
-    void Start()
+    public void Init(int currentPhase)
     {
         bearState = bearReference.Instance.GetComponent<BearState>();
         _thunderRender = gameObject.GetComponent<ThunderRender>();

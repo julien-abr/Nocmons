@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    [SerializeField] private float minTimeBtwEvent;
-    [SerializeField] private float maxTimeBtwEvent;
-    [SerializeField] private List<GameObject> listEventsGO = new List<GameObject>();
+    [SerializeField] private GameObject lightningEvent;
+    [SerializeField] private GameObject ShadowEvent;
     [SerializeField] private GameObject eventParent;
+    [SerializeField] private int timeBeforeStartingAllEvents;
     private bool _canSpawn = true;
 
     [Header("Event parameters")] 
@@ -27,34 +27,38 @@ public class EventManager : MonoBehaviour
         bearState.OnWin += StopSpawn;
         bearState.OnDied += StopSpawn;
         WaitUntilNextPhase();
-        SpawnRandomEvent();
+        SpawnEvent();
     }
 
-    private void SpawnRandomEvent()
+    private void SpawnEvent()
     {
-        int numberOfEvents = listEventsGO.Count;
-        if (numberOfEvents == 0) { return;}
-        int randomEvent = Random.Range(0, numberOfEvents);
+        if (lightningEvent == null || ShadowEvent == null) { return;}
 
-        GameObject Event = Instantiate(listEventsGO[randomEvent], transform.position, Quaternion.identity);
-        Event.transform.parent = eventParent.transform;
-        
-        TransitionToNextEvent();
+        SpawnEvent(EventType.Shadow);
     }
 
-    private void TransitionToNextEvent()
+    private IEnumerator StartShadowEvent()
     {
-        if (_canSpawn)
-        {
-            var randomTime = Random.Range(minTimeBtwEvent, maxTimeBtwEvent);
-            StartCoroutine(Transition(randomTime));
-        }
+        if (!_canSpawn) { yield break; }
         
-        IEnumerator Transition(float time)
-        {
-            yield return new WaitForSeconds(time);
-            SpawnRandomEvent();
-        }
+        float minTime = eventParameter.EventPhases[_currentPhase].shadowParam.minTimeBeforeSpawn;
+        float maxTime = eventParameter.EventPhases[_currentPhase].shadowParam.maxTimeBeforeSpawn;
+        float random = Random.Range(minTime, maxTime);
+        yield return new WaitForSeconds(random);
+        SpawnEvent(EventType.Shadow);
+        StartShadowEvent();
+    }
+
+    private IEnumerator StartLightingEvent()
+    {
+        if (!_canSpawn) { yield break; }
+        
+        float minTime = eventParameter.EventPhases[_currentPhase].lighteningParam.minTimeBeforeSpawn;
+        float maxTime = eventParameter.EventPhases[_currentPhase].lighteningParam.maxTimeBeforeSpawn;
+        float random = Random.Range(minTime, maxTime);
+        yield return new WaitForSeconds(random);
+        SpawnEvent(EventType.Lightning);
+        StartShadowEvent();
     }
 
     private void WaitUntilNextPhase()
@@ -81,5 +85,30 @@ public class EventManager : MonoBehaviour
     {
         _canSpawn = false;
     }
+
+    private IEnumerator SpawnEvent(EventType eventType)
+    {
+        switch (eventType)
+        {
+            case EventType.Lightning:
+                GameObject EventLightning = Instantiate(lightningEvent, transform.position, Quaternion.identity);
+                EventLightning.transform.parent = eventParent.transform;
+                break;
+            case EventType.Shadow:
+                GameObject EventShadow = Instantiate(ShadowEvent, transform.position, Quaternion.identity);
+                EventShadow.transform.parent = eventParent.transform;
+                break;
+        }
+        
+        yield return new WaitForSeconds(timeBeforeStartingAllEvents);
+        StartShadowEvent();
+        StartLightingEvent();
+    }
+}
+
+enum EventType
+{
+    Lightning,
+    Shadow,
 }
 
