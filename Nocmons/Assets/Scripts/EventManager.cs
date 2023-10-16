@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EventManager : MonoBehaviour
 {
@@ -33,8 +34,8 @@ public class EventManager : MonoBehaviour
     private void SpawnEvent()
     {
         if (lightningEvent == null || ShadowEvent == null) { return;}
-
-        SpawnEvent(EventType.Shadow);
+        Debug.Log("lalala");
+        StartCoroutine(SpawnEvent(EventType.Shadow));
     }
 
     private IEnumerator StartShadowEvent()
@@ -45,8 +46,8 @@ public class EventManager : MonoBehaviour
         float maxTime = eventParameter.EventPhases[_currentPhase].shadowParam.maxTimeBeforeSpawn;
         float random = Random.Range(minTime, maxTime);
         yield return new WaitForSeconds(random);
-        SpawnEvent(EventType.Shadow);
-        StartShadowEvent();
+        StartCoroutine(SpawnEvent(EventType.Shadow));
+        StartCoroutine(StartShadowEvent());
     }
 
     private IEnumerator StartLightingEvent()
@@ -57,8 +58,9 @@ public class EventManager : MonoBehaviour
         float maxTime = eventParameter.EventPhases[_currentPhase].lighteningParam.maxTimeBeforeSpawn;
         float random = Random.Range(minTime, maxTime);
         yield return new WaitForSeconds(random);
-        SpawnEvent(EventType.Lightning);
-        StartShadowEvent();
+        StartCoroutine(SpawnEvent(EventType.Lightning));
+        StartCoroutine(StartLightingEvent());
+        
     }
 
     private void WaitUntilNextPhase()
@@ -88,6 +90,7 @@ public class EventManager : MonoBehaviour
 
     private IEnumerator SpawnEvent(EventType eventType)
     {
+        Debug.Log("Spawn");
         switch (eventType)
         {
             case EventType.Lightning:
@@ -102,8 +105,8 @@ public class EventManager : MonoBehaviour
         }
         
         yield return new WaitForSeconds(timeBeforeStartingAllEvents);
-        StartShadowEvent();
-        StartLightingEvent();
+        StartCoroutine(StartShadowEvent());
+        StartCoroutine(StartLightingEvent());
     }
 }
 

@@ -7,8 +7,8 @@ public class EnemyDetection : MonoBehaviour
 {
     [SerializeField] private Camera camera;
     [SerializeField] private BearReference bearRef;
-
     private List<DetectionStruct> listDetection = new List<DetectionStruct>();
+    // [SerializeField] private l
     
     public void AddObject(GameObject go)
     {

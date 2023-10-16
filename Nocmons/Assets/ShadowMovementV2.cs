@@ -30,6 +30,9 @@ public class ShadowMovementV2 : MonoBehaviour
     {
         distanceState = distance.none;
         _startPosition = transform.position;
+        
+        _bearState = bearRef.Instance.GetComponent<BearState>();
+        _bearTransform = bearRef.Instance.GetComponent<Transform>();
         _totalDistance = Vector3.Distance(_startPosition, _bearTransform.position);
             
         _maxSpeed = maxSpeed;
@@ -39,8 +42,7 @@ public class ShadowMovementV2 : MonoBehaviour
         _damagePoint1 = dmg1;
         _damagePoint2 = dmg2;
 
-        _bearState = bearRef.Instance.GetComponent<BearState>();
-        _bearTransform = bearRef.Instance.GetComponent<Transform>();
+
             
         isInitialized = true;
     }
@@ -106,8 +108,16 @@ public class ShadowMovementV2 : MonoBehaviour
     public void SetIsSeen(bool result)
     {
         isSeen = result;
-
-        _speed = !isSeen ? 0 : _maxSpeed;
+        
+        if (!isSeen)
+        {
+            _currentTime = 0;
+            _speed = _maxSpeed;
+        }
+        else
+        {
+            _speed = 0;
+        }
     }
 
     public enum distance
