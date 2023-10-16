@@ -97,6 +97,7 @@ public class EventManager : MonoBehaviour
             case EventType.Shadow:
                 GameObject EventShadow = Instantiate(ShadowEvent, transform.position, Quaternion.identity);
                 EventShadow.transform.parent = eventParent.transform;
+                EventShadow.GetComponent<ShadowEvent>().Init(_currentPhase);
                 break;
         }
         

@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &113795270
 Transform:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113795269}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf4a43551ef33bf4d906668e2c463a5a, type: 3}
   m_Name: 
@@ -617,11 +617,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad45057ff2ad1114ea471631b22a5530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimeBtwEvent: 2
-  maxTimeBtwEvent: 4
-  listEventsGO:
-  - {fileID: 2782613413519439964, guid: d6bef8882b3aec4418b6e8d1dafa2893, type: 3}
+  lightningEvent: {fileID: 5027843717634821213, guid: 6502dbdc43e941346b1f48df3d0face7,
+    type: 3}
+  ShadowEvent: {fileID: 2782613413519439964, guid: d6bef8882b3aec4418b6e8d1dafa2893,
+    type: 3}
   eventParent: {fileID: 772540419}
+  timeBeforeStartingAllEvents: 7
   eventParameter: {fileID: 11400000, guid: e41027cab5b7a6b4db0f836fa7cffc40, type: 2}
   bearReference: {fileID: 11400000, guid: 5b8edc3bcd0d8ac49a856277e235f30f, type: 2}
 --- !u!1001 &1928650236
