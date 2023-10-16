@@ -458,9 +458,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bearRef: {fileID: 11400000, guid: 5b8edc3bcd0d8ac49a856277e235f30f, type: 2}
   eventParameter: {fileID: 11400000, guid: e41027cab5b7a6b4db0f836fa7cffc40, type: 2}
-  _cameraLeft: {x: 0, y: -45, z: 0}
-  _cameraMidle: {x: 0, y: 0, z: 0}
-  _cameraRight: {x: 0, y: 45, z: 0}
 --- !u!1 &6971319940566336518
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,9 +639,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shadowMovement: {fileID: 0}
   camera: {fileID: 735695534712728462}
-  objectToDetect: {fileID: 0}
   detectionDistance: 10
   timeForFear: 2
+  bearRef: {fileID: 11400000, guid: 5b8edc3bcd0d8ac49a856277e235f30f, type: 2}
+  _eventParameter: {fileID: 11400000, guid: e41027cab5b7a6b4db0f836fa7cffc40, type: 2}
 --- !u!1001 &2872425233059547195
 PrefabInstance:
   m_ObjectHideFlags: 0

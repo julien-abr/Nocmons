@@ -430,8 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50beeeeb8a8f03d478b43b0df3ac0309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tunder: {fileID: 1714889447}
-  _tunderDuration: 5
+  eventParameter: {fileID: 0}
+  bearReference: {fileID: 0}
 --- !u!4 &1695518942
 Transform:
   m_ObjectHideFlags: 0

@@ -122,7 +122,4 @@ MonoBehaviour:
     type: 3}
   _enemySpeed: 1
   _actualEnemySpeed: 0
-  numeroUno: 0
-  numeroDos: 0
-  numeroTres: 0
-  numeroFinal: 0
+  distanceState: 0

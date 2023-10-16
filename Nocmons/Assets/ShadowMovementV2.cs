@@ -11,19 +11,17 @@ public class ShadowMovementV2 : MonoBehaviour
     public int _actualEnemySpeed;
     private Vector3 _startPosition;
     private float _totalDistance;
-    
-    [SerializeField] private bool numeroUno;
-    [SerializeField] private bool numeroDos;
-    [SerializeField] private bool numeroTres;
-    [SerializeField] private bool numeroFinal;
-    
+
+    public distance distanceState;
 
     private void Start()
     {
+        distanceState = distance.none;
         _actualEnemySpeed = _enemySpeed;
         _startPosition = transform.position;
         _totalDistance = Vector3.Distance(_startPosition, _enemyTarget.position);
     }
+    
 
     void Update()
     {
@@ -37,22 +35,32 @@ public class ShadowMovementV2 : MonoBehaviour
 
             if (percentageCovered >= 25)
             {
-                numeroUno = true;
+                distanceState = distance.twentyFive;
             }
             if (percentageCovered >= 50)
             {
-                numeroDos = true;
+                distanceState = distance.fifty;
+
             }
             if (percentageCovered >= 75)
             {
-                numeroTres = true;
+                distanceState = distance.seventyFive;
             }
             if (percentageCovered >= 100)
             {
-                numeroFinal = true;
+                distanceState = distance.isFinish;
             }
         }
     }
-    
-    
+
+    public enum distance
+    {
+        none,
+        twentyFive,
+        fifty,
+        seventyFive,
+        isFinish,
+    };
+
+
 }
