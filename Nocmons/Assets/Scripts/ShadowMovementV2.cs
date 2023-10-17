@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class ShadowMovementV2 : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public class ShadowMovementV2 : MonoBehaviour
     private bool isSeen;
     private EnemyDetection _enemyDetection;
     private bool _usingLight;
+
+    private bool soundPlayed25;
+    private bool soundPlayed50;
+    private bool soundPlayed75;
+    private bool soundPlayed100;
+    
     
     public void Init(float maxSpeed, float timeBeforeDamaging, float dmg0, float dmg1, float dmg2, BearReference bearRef, EnemyDetection enemyDetection)
     {
@@ -63,19 +70,42 @@ public class ShadowMovementV2 : MonoBehaviour
 
             if (percentageCovered >= 25)
             {
+                
                 distanceState = distance.twentyFive;
+                if (!soundPlayed25)
+                {
+                    SFXRandom();
+                    soundPlayed25 = true;
+                }
             }
             if (percentageCovered >= 50)
             {
                 distanceState = distance.fifty;
+                if (!soundPlayed50)
+                {
+                    SFXRandom();
+                    soundPlayed50 = true;
+                }
+                    
+                
             }
             if (percentageCovered >= 75)
             {
                 distanceState = distance.seventyFive;
+                if (!soundPlayed75)
+                {
+                    SFXRandom();
+                    soundPlayed75 = true;
+                }
             }
             if (percentageCovered >= 100)
             {
                 distanceState = distance.isFinish;
+                if (!soundPlayed100)
+                {
+                    DeathSFX();
+                    soundPlayed100 = true;
+                }
                 _bearState.Die();
             }
         }
@@ -113,6 +143,27 @@ public class ShadowMovementV2 : MonoBehaviour
         }
     }
 
+    void SFXRandom()
+    {
+        int i = Random.Range(0, 3);
+        switch (i)
+        {
+            case 0 :
+                AudioManager.instance.PlayRandom(SoundState.SCRATCH);
+                break;
+            case 1:
+                AudioManager.instance.PlayRandom(SoundState.CRACKINGFLOOR);
+                break;
+            case 2:
+                AudioManager.instance.PlayRandom(SoundState.FALLINGOBJECT);
+                break;
+        }
+    }
+
+    void DeathSFX()
+    {
+        AudioManager.instance.PlayRandom(SoundState.BREATH);
+    }
     public void SetIsSeen(bool result)
     {
         isSeen = result;
