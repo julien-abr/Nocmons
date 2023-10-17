@@ -236,7 +236,7 @@ MonoBehaviour:
     loop: 0
     audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
       type: 2}
-    actualSound: 3
+    actualSound: 0
   - name: NoMoreBattery
     clip: {fileID: 8300000, guid: 4db30afed7d77d847917681302a7ccbe, type: 3}
     volume: 1
@@ -244,7 +244,7 @@ MonoBehaviour:
     loop: 0
     audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
       type: 2}
-    actualSound: 3
+    actualSound: 0
   - name: Breath1
     clip: {fileID: 8300000, guid: 05c28f4aab121324cb7c31bc978521c0, type: 3}
     volume: 1
@@ -319,6 +319,14 @@ MonoBehaviour:
     actualSound: 0
   - name: PressAnyButton
     clip: {fileID: 8300000, guid: 97a52669a6023eb47842f61270dcdcc4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 0
+  - name: LightOff
+    clip: {fileID: 8300000, guid: e1286bc3d32660b469d2f8a1c054cba4, type: 3}
     volume: 1
     pitch: 1
     loop: 0
