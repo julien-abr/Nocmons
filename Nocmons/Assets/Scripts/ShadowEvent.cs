@@ -34,6 +34,7 @@ public class ShadowEvent : Event
         go.GetComponent<ShadowMovementV2>().Init(randomSpeed,timeBeforeDmg, dmg0, dmg1, dmg2, bearRef, _enemyDetection);
         _enemyDetection.AddObject(go);
         //add sound
+        AudioManager.instance.Play("ShadowSpawn");
     }
 
 }

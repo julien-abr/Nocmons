@@ -4,9 +4,10 @@ using UnityEngine;
 
 public enum SoundState
 {
-    MENU,
-    VICTORY,
-    DEATH,
-    DAMAGE,
-    MUSIC
+    NONE,
+    MUSIC,
+    CRACKINGFLOOR,
+    SCRATCH,
+    FALLINGOBJECT,
+    BREATH,
 }

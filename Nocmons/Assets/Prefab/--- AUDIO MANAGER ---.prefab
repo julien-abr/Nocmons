@@ -44,4 +44,284 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e34755a0fe6ac84ebdd229f6414f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: BedRoomMusic1
+    clip: {fileID: 8300000, guid: c234e3257b97a66488a399df05efcfa5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    audioMixer: {fileID: -3621787668656368800, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 1
+  - name: BedRoomMusic2
+    clip: {fileID: 8300000, guid: f4dc7558aab72204ba47e81fdfba9165, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    audioMixer: {fileID: -3621787668656368800, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 1
+  - name: MenuMusic
+    clip: {fileID: 8300000, guid: 6e33eb10101a83c478d32a745edb802e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    audioMixer: {fileID: -3621787668656368800, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 1
+  - name: CrackingFloor1
+    clip: {fileID: 8300000, guid: 9e1ef9ab8eaa33644b232f7614736322, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 2
+  - name: CrackingFloor2
+    clip: {fileID: 8300000, guid: cc09cfba81325d445967dece7a084929, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 2
+  - name: CrackingFloor3
+    clip: {fileID: 8300000, guid: e45e89374e49c7341a38d1de71cc3ff2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 2
+  - name: CrackingFloor4
+    clip: {fileID: 8300000, guid: 99fd0b4bdb7b33a4694265e4a4f014f9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 2
+  - name: CrackingFloor5
+    clip: {fileID: 8300000, guid: f97f05c8b98de0e4eb6a34ae28323579, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 2
+  - name: Scratch1
+    clip: {fileID: 8300000, guid: 463029795725f3d48aabe30b7b5a14ec, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 3
+  - name: Scratch2
+    clip: {fileID: 8300000, guid: bc868a42a6455df40a80e6c97263d055, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 3
+  - name: Scratch3
+    clip: {fileID: 8300000, guid: db742c82c3c4aa748a03b660cb4aaa0a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 3
+  - name: LightOn
+    clip: {fileID: 8300000, guid: 429a2c23abbcae946ae13d25b0fed480, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 0
+  - name: FallingObject1
+    clip: {fileID: 8300000, guid: 2dbff023aa4f8b94292e813222b72d04, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 4
+  - name: FallingObject2
+    clip: {fileID: 8300000, guid: c6703073eeb07c646a4e0c5276cf8043, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 4
+  - name: FallingObject3
+    clip: {fileID: 8300000, guid: bbd8ad5b78670e24bb850ad4ad2d6616, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 4
+  - name: FallingObject4
+    clip: {fileID: 8300000, guid: d1bcf242ccfa98e49b5fd78a1173a777, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 4
+  - name: FallingObject5
+    clip: {fileID: 8300000, guid: 4711fc0fc5a644647a391eb07e069fbf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 4
+  - name: FallingObject6
+    clip: {fileID: 8300000, guid: e08770b001f3c114a8c7f3af26b0b9fd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 4
+  - name: FallingObject7
+    clip: {fileID: 8300000, guid: 56c31821ba9c2c74d9bb4a7f521cf021, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 4
+  - name: FallingObject8
+    clip: {fileID: 8300000, guid: 2cc421e3cad9fd744afbb44a7293e16d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 4
+  - name: FallingObject9
+    clip: {fileID: 8300000, guid: f2a89d322271d0c48abf958d970fb4f0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 4
+  - name: FallingObject10
+    clip: {fileID: 8300000, guid: 40cd64672b2d010429af88cd5ecf5a65, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 4
+  - name: PileFullBattery
+    clip: {fileID: 8300000, guid: 6fd93c299cca5244f91edbab16f325d3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 0
+  - name: PileIsReload
+    clip: {fileID: 8300000, guid: 56fd374f843ab564280516b3bac93b58, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 3
+  - name: NoMoreBattery
+    clip: {fileID: 8300000, guid: 4db30afed7d77d847917681302a7ccbe, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 3
+  - name: Breath1
+    clip: {fileID: 8300000, guid: 05c28f4aab121324cb7c31bc978521c0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 5
+  - name: Breath2
+    clip: {fileID: 8300000, guid: 4ad6d4fc1dfbd7c44834c498b145aa0a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 5
+  - name: Breath3
+    clip: {fileID: 8300000, guid: 4a4593fc43c5be44dacf8f4209292911, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 5
+  - name: Breath4
+    clip: {fileID: 8300000, guid: f19311c8de8ea4d40b9da08dedb8aafc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 5
+  - name: LightningFar1
+    clip: {fileID: 8300000, guid: 239b000d3d066a444ab943f18e8accff, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 0
+  - name: LightningFar2
+    clip: {fileID: 8300000, guid: 30cf6edb8987c33468b4982d645d0400, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 0
+  - name: LightningNear
+    clip: {fileID: 8300000, guid: 0327c227093035f45a0592e83562bfcb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 0
+  - name: ShadowSpawn
+    clip: {fileID: 8300000, guid: fb1e060b0df05be4b91bf19321994c1a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 0
+  - name: SFX_Ombre2_Stade3
+    clip: {fileID: 8300000, guid: 7cf245f5d95196d4d9e74128a1ef4a01, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 0
+  - name: PressAnyButton
+    clip: {fileID: 8300000, guid: 97a52669a6023eb47842f61270dcdcc4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 0
