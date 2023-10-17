@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerText: {fileID: 1782053150}
-  _remainingTime: 360
+  EventParameter: {fileID: 11400000, guid: e41027cab5b7a6b4db0f836fa7cffc40, type: 2}
 --- !u!1 &1782053149
 GameObject:
   m_ObjectHideFlags: 0
