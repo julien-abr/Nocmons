@@ -38,6 +38,7 @@ public class LightningEvent : MonoBehaviour
         
         IEnumerator LaunchThunder()
         {
+            AudioManager.instance.Play("LightningNear");
             _thunderRender.LightningEffect();
             Debug.Log("un eclaire est lancé");
             yield return new WaitForSeconds(_thunderDuration);
