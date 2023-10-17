@@ -50,6 +50,10 @@ public class EnemyDetection : MonoBehaviour
 
         foreach (DetectionStruct detectionStruct in listDetection)
         {
+            if (detectionStruct.GoToDetect == null)
+            {
+                continue;
+            }
             Vector3 screenPoint = camera.WorldToScreenPoint(detectionStruct.GoToDetect.transform.position);
 
             if (screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < Screen.width && screenPoint.y > 0 &&

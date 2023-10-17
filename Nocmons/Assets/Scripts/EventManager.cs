@@ -20,6 +20,7 @@ public class EventManager : MonoBehaviour
     private BearState bearState;
     
     private int _currentPhase;
+    private bool alreadyDone = false;
     public void Init()
     {
         if (!eventParameter) { return; }
@@ -103,10 +104,15 @@ public class EventManager : MonoBehaviour
                 EventShadow.GetComponent<ShadowEvent>().Init(_currentPhase);
                 break;
         }
+
+        if (!alreadyDone)
+        {
+            yield return new WaitForSeconds(timeBeforeStartingAllEvents);
+            StartCoroutine(StartShadowEvent());
+            StartCoroutine(StartLightingEvent());
+            alreadyDone = true;
+        }
         
-        yield return new WaitForSeconds(timeBeforeStartingAllEvents);
-        StartCoroutine(StartShadowEvent());
-        StartCoroutine(StartLightingEvent());
     }
 }
 
