@@ -7,10 +7,24 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timerText;
-    [SerializeField]private float _remainingTime;
+    [SerializeField] private EventParameter EventParameter;
+    private float _remainingTime;
+    private bool _isInitialized;
+
+    private void Start()
+    {
+        foreach (var phase in EventParameter.EventPhases)
+        {
+            _remainingTime += phase.PhaseDuration;
+        }
+
+        _isInitialized = true;
+    }
 
     private void Update()
     {
+        if(!_isInitialized) {return;}
+        
         if (_remainingTime > 0)
         {
             _remainingTime -= Time.deltaTime;
