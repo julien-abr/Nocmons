@@ -10,7 +10,7 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] private BearReference bearRef;
     private List<DetectionStruct> listDetection = new List<DetectionStruct>();
     private LightSystem _lightSystem;
-    public bool _isUsingLight;
+    public bool _isUsingLight {get; private set;}
 
     private void Start()
     {

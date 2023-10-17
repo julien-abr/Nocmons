@@ -18,7 +18,7 @@ public class LightningEvent : MonoBehaviour
 
     private BearState bearState;
 
-    public void Init(int currentPhase)
+    public void Init()
     {
         bearState = bearReference.Instance.GetComponent<BearState>();
         _thunderRender = gameObject.GetComponent<ThunderRender>();
@@ -39,7 +39,7 @@ public class LightningEvent : MonoBehaviour
         IEnumerator LaunchThunder()
         {
             _thunderRender.LightningEffect();
-
+            Debug.Log("un eclaire est lancé");
             yield return new WaitForSeconds(_thunderDuration);
 
             if (!_isBearHidingLeftEye && !_isBearHidingRightEye)
@@ -48,6 +48,8 @@ public class LightningEvent : MonoBehaviour
             }
         }
     }
+    
+    
 
     public void EffectEnded()
     {

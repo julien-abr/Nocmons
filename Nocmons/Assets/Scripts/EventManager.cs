@@ -35,7 +35,6 @@ public class EventManager : MonoBehaviour
     private void SpawnEvent()
     {
         if (lightningEvent == null || ShadowEvent == null) { return;}
-        Debug.Log("lalala");
         StartCoroutine(SpawnEvent(EventType.Shadow));
     }
 
@@ -91,12 +90,12 @@ public class EventManager : MonoBehaviour
 
     private IEnumerator SpawnEvent(EventType eventType)
     {
-        Debug.Log("Spawn");
         switch (eventType)
         {
             case EventType.Lightning:
                 GameObject EventLightning = Instantiate(lightningEvent, transform.position, Quaternion.identity);
                 EventLightning.transform.parent = eventParent.transform;
+                EventLightning.GetComponent<LightningEvent>().Init();
                 break;
             case EventType.Shadow:
                 GameObject EventShadow = Instantiate(ShadowEvent, transform.position, Quaternion.identity);

@@ -85,8 +85,8 @@ public class ShadowMovementV2 : MonoBehaviour
             if (_usingLight)
             {
                 //Death coroutine
-                _enemyDetection.RemoveObject(transform.parent.gameObject);
-                Destroy((this.gameObject));
+                _enemyDetection.RemoveObject(gameObject);
+                Destroy((transform.parent.gameObject));
             }
             _currentTime += Time.deltaTime;
 
