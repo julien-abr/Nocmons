@@ -25,8 +25,10 @@ public class ShadowMovementV2 : MonoBehaviour
 
     private bool isInitialized;
     private bool isSeen;
+    private EnemyDetection _enemyDetection;
+    private bool _usingLight;
     
-    public void Init(float maxSpeed, float timeBeforeDamaging, float dmg0, float dmg1, float dmg2, BearReference bearRef)
+    public void Init(float maxSpeed, float timeBeforeDamaging, float dmg0, float dmg1, float dmg2, BearReference bearRef, EnemyDetection enemyDetection)
     {
         distanceState = distance.none;
         _startPosition = transform.position;
@@ -41,9 +43,9 @@ public class ShadowMovementV2 : MonoBehaviour
         _damagePoint0 = dmg0;
         _damagePoint1 = dmg1;
         _damagePoint2 = dmg2;
-
-
-            
+        _enemyDetection = enemyDetection;
+         _usingLight = _enemyDetection._isUsingLight;
+        
         isInitialized = true;
     }
     
@@ -80,6 +82,12 @@ public class ShadowMovementV2 : MonoBehaviour
 
         if (isSeen)
         {
+            if (_usingLight)
+            {
+                //Death coroutine
+                _enemyDetection.RemoveObject(transform.parent.gameObject);
+                Destroy((this.gameObject));
+            }
             _currentTime += Time.deltaTime;
 
             if (_currentTime >= _timeBeforeDamagingPlayer)
@@ -118,6 +126,11 @@ public class ShadowMovementV2 : MonoBehaviour
         {
             _speed = 0;
         }
+    }
+
+    public void SetUsingLight(bool result)
+    {
+        _usingLight = result;
     }
 
     public enum distance

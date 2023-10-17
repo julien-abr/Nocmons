@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
@@ -8,7 +9,15 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] private Camera camera;
     [SerializeField] private BearReference bearRef;
     private List<DetectionStruct> listDetection = new List<DetectionStruct>();
-    // [SerializeField] private l
+    private LightSystem _lightSystem;
+    public bool _isUsingLight;
+
+    private void Start()
+    {
+        _lightSystem = bearRef.Instance.GetComponent<LightSystem>();
+        _lightSystem.OnLightActivate += LightOn;
+        _lightSystem.OnLightDeactivate += LightOff;
+    }
     
     public void AddObject(GameObject go)
     {
@@ -16,6 +25,20 @@ public class EnemyDetection : MonoBehaviour
         newDetection.GoToDetect = go;
         newDetection.Movement = newDetection.GoToDetect.GetComponent<ShadowMovementV2>();
         listDetection.Add(newDetection);
+    }
+
+    public void RemoveObject(GameObject go)
+    {
+        DetectionStruct structToRemove = new DetectionStruct();
+        foreach (DetectionStruct detectionStruct in listDetection)
+        {
+            if (detectionStruct.GoToDetect == go)
+            {
+                structToRemove = detectionStruct;
+            }
+        }
+
+        listDetection.Remove(structToRemove);
     }
 
     private void Update()
@@ -40,6 +63,25 @@ public class EnemyDetection : MonoBehaviour
             }
         }
 
+    }
+
+    private void LightOn()
+    {
+        _isUsingLight = true;
+        foreach (DetectionStruct detectionStruct in listDetection)
+        {
+            detectionStruct.Movement.SetUsingLight(true);
+        }
+    }
+    
+    private void LightOff()
+    {   
+        _isUsingLight = false;
+        
+        foreach (DetectionStruct detectionStruct in listDetection)
+        {
+            detectionStruct.Movement.SetUsingLight(false);
+        }
     }
 
 }
