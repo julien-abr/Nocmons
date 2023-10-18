@@ -9,11 +9,21 @@ using Unity.VisualScripting;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-    
+    public static AudioManager instance;
     private Dictionary<SoundState, List<Sound>> DicoActualSound = new Dictionary<SoundState, List<Sound>>();
     
     void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(this.gameObject);
        foreach (Sound s in sounds)
        {
             s.Source = gameObject.AddComponent<AudioSource>();
@@ -41,6 +51,16 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.Source.Play();
+    }
+    public void StopMusic(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.Name == name);
+        if(s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found");
+            return;
+        }
+        s.Source.Stop();
     }
 
     public void Stop(SoundState soundState)
