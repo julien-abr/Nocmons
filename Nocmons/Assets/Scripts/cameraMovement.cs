@@ -34,16 +34,16 @@ public class cameraMovement : MonoBehaviour
         _cameraMiddle = eventParameter.cameraMiddle;
     }
 
-    void RotateCameLeft()
+    public void RotateCameLeft()
     {
         camera.transform.DORotate(_cameraLeft, _timeToRotate, RotateMode.Fast);
     }
-    void RotateCameRight()
+    public void RotateCameRight()
     {
         camera.transform.DORotate(_cameraRight, _timeToRotate, RotateMode.Fast);
 
     }
-    void RotateCameMiddle()
+    public void RotateCameMiddle()
     {
         camera.transform.DORotate(_cameraMiddle, _timeToRotate, RotateMode.Fast);
     }

@@ -657,6 +657,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1221213200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &886371001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6267694681463742303, guid: 56872708e604ec141bb77ccae09fe072,
+    type: 3}
+  m_PrefabInstance: {fileID: 1928650236}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1221213199
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +892,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6267694681463742303, guid: 56872708e604ec141bb77ccae09fe072,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1928650240}
+    - targetCorrespondingSourceObject: {fileID: 6267694681463742303, guid: 56872708e604ec141bb77ccae09fe072,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1928650239}
   m_SourcePrefab: {fileID: 100100000, guid: 56872708e604ec141bb77ccae09fe072, type: 3}
 --- !u!4 &1928650237 stripped
 Transform:
@@ -894,6 +908,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1928650236}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1928650239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886371001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66213dd7cf031c428fbbd9de971f593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stick: []
+  _gyro: {x: 0, y: 0, z: 0}
+  _accel: {x: 0, y: 0, z: 0}
+  jc_ind: 0
+  _orientation: {x: 0, y: 0, z: 0, w: 0}
+  _orientationJoycon: {x: 0, y: 0, z: 0, w: 0}
+  _orientationReset: {x: 0, y: 0, z: 0, w: 0}
+  currentRot: 0
+--- !u!114 &1928650240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886371001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405bad29b2b998c408059182c189d9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnableIMU: 1
+  EnableLocalize: 1
 --- !u!1001 &1846149997022411194
 PrefabInstance:
   m_ObjectHideFlags: 0
