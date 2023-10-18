@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class JoyconHead : MonoBehaviour
@@ -14,15 +16,8 @@ public class JoyconHead : MonoBehaviour
 	public Quaternion _orientation;
 	[SerializeField] Quaternion _orientationJoycon;
 	[SerializeField] Quaternion _orientationReset;
-	[SerializeField] private float LeftRotMin;
-	[SerializeField] private float LeftRotMax;
-	[SerializeField] private float MiddleRotMin;
-	[SerializeField] private float MiddleRotMax;
-	[SerializeField] private float RightRotMin;
-	[SerializeField] private float RightRotMax;
-
 	[SerializeField] private RotationState currentRot;
-	
+	private cameraMovement _camMovement;
 	void Start()
 	{
 		currentRot = RotationState.Middle;
@@ -34,6 +29,7 @@ public class JoyconHead : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		_camMovement = GetComponent<cameraMovement>();
 	}
 
 	// Update is called once per frame
@@ -69,10 +65,49 @@ public class JoyconHead : MonoBehaviour
 	}
 	private void ClampRot(Quaternion quat)
 	{
-		Vector3 quatEuler = quat.eulerAngles;
-		float clampedRotY = Mathf.Clamp(quat.y, LeftRotMax, RightRotMax);
-		gameObject.transform.rotation = new Quaternion(0, clampedRotY, 0, quat.w);
+		
+		float clampedAngleY = Mathf.Clamp(quat.y, -0.3f, 0.3f);
+		float InverseLerp = Mathf.InverseLerp(-0.3f, 0.3f, clampedAngleY);
+		if(InverseLerp == 0 || InverseLerp == 1) {return;}
+
+		switch (InverseLerp)
+		{
+			case <= 0.33f:
+				OnDirectionChanged(RotationState.Left);
+				break;
+			case >= 0.66f:
+				OnDirectionChanged(RotationState.Right);
+				break;
+			default:
+				OnDirectionChanged(RotationState.Middle);
+				break;
+		}
+		/*float angle = Mathf.Lerp(-60, 60, InverseLerp);
+		Debug.Log("inv : " + InverseLerp + " angle : " + angle);
+		gameObject.transform.eulerAngles = new Vector3(0, angle, 0);*/
 	}
+
+	private void OnDirectionChanged(RotationState newRot)
+	{
+		if (newRot == currentRot) return;
+		
+		currentRot = newRot;
+		switch (newRot)
+		{
+			case RotationState.Left:
+				_camMovement.RotateCameLeft();
+				break;
+			case RotationState.Middle:
+				_camMovement.RotateCameMiddle();
+				break;
+			case RotationState.Right:
+				_camMovement.RotateCameRight();
+				break;
+			default:
+				throw new ArgumentOutOfRangeException(nameof(newRot), newRot, null);
+		}
+	}
+
 	enum RotationState
 	{
 		Left,
