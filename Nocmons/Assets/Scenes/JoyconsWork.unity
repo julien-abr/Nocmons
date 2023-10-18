@@ -294,6 +294,13 @@ MonoBehaviour:
   _orientation: {x: 0, y: 0, z: 0, w: 0}
   _orientationJoycon: {x: 0, y: 0, z: 0, w: 0}
   _orientationReset: {x: 0, y: 0, z: 0, w: 0}
+  LeftRotMin: -20
+  LeftRotMax: -60
+  MiddleRotMin: -20
+  MiddleRotMax: 20
+  RightRotMin: 20
+  RightRotMax: 60
+  currentRot: 0
 --- !u!1 &868689641
 GameObject:
   m_ObjectHideFlags: 0

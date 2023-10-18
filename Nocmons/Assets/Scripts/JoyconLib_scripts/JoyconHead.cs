@@ -14,9 +14,18 @@ public class JoyconHead : MonoBehaviour
 	public Quaternion _orientation;
 	[SerializeField] Quaternion _orientationJoycon;
 	[SerializeField] Quaternion _orientationReset;
+	[SerializeField] private float LeftRotMin;
+	[SerializeField] private float LeftRotMax;
+	[SerializeField] private float MiddleRotMin;
+	[SerializeField] private float MiddleRotMax;
+	[SerializeField] private float RightRotMin;
+	[SerializeField] private float RightRotMax;
 
+	[SerializeField] private RotationState currentRot;
+	
 	void Start()
 	{
+		currentRot = RotationState.Middle;
 		_gyro = new Vector3(0, 0, 0);
 		_accel = new Vector3(0, 0, 0);
 		// get the public Joycon array attached to the JoyconManager in scene
@@ -50,10 +59,24 @@ public class JoyconHead : MonoBehaviour
 			{
 				//reset
 				Debug.Log("Reset Orientation");
-				_orientationReset = _orientation;
+				_orientationReset = new Quaternion(0, 0, 0, 0);
 			}
-			_orientationJoycon = _orientation * Quaternion.Inverse(_orientationReset);
-			gameObject.transform.rotation = _orientationJoycon;
+			_orientationJoycon = _orientation;//Quaternion.Inverse(_orientationReset);
+			ClampRot(_orientation);
 		}
+
+
+	}
+	private void ClampRot(Quaternion quat)
+	{
+		Vector3 quatEuler = quat.eulerAngles;
+		float clampedRotY = Mathf.Clamp(quat.y, LeftRotMax, RightRotMax);
+		gameObject.transform.rotation = new Quaternion(0, clampedRotY, 0, quat.w);
+	}
+	enum RotationState
+	{
+		Left,
+		Middle,
+		Right,
 	}
 }
