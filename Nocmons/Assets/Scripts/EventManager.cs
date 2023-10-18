@@ -20,6 +20,7 @@ public class EventManager : MonoBehaviour
     private BearState bearState;
     
     private int _currentPhase;
+    private bool alreadyDone = false;
     public void Init()
     {
         if (!eventParameter) { return; }
@@ -34,7 +35,6 @@ public class EventManager : MonoBehaviour
     private void SpawnEvent()
     {
         if (lightningEvent == null || ShadowEvent == null) { return;}
-        Debug.Log("lalala");
         StartCoroutine(SpawnEvent(EventType.Shadow));
     }
 
@@ -90,12 +90,12 @@ public class EventManager : MonoBehaviour
 
     private IEnumerator SpawnEvent(EventType eventType)
     {
-        Debug.Log("Spawn");
         switch (eventType)
         {
             case EventType.Lightning:
                 GameObject EventLightning = Instantiate(lightningEvent, transform.position, Quaternion.identity);
                 EventLightning.transform.parent = eventParent.transform;
+                EventLightning.GetComponent<LightningEvent>().Init();
                 break;
             case EventType.Shadow:
                 GameObject EventShadow = Instantiate(ShadowEvent, transform.position, Quaternion.identity);
@@ -103,10 +103,15 @@ public class EventManager : MonoBehaviour
                 EventShadow.GetComponent<ShadowEvent>().Init(_currentPhase);
                 break;
         }
+
+        if (!alreadyDone)
+        {
+            yield return new WaitForSeconds(timeBeforeStartingAllEvents);
+            StartCoroutine(StartShadowEvent());
+            StartCoroutine(StartLightingEvent());
+            alreadyDone = true;
+        }
         
-        yield return new WaitForSeconds(timeBeforeStartingAllEvents);
-        StartCoroutine(StartShadowEvent());
-        StartCoroutine(StartLightingEvent());
     }
 }
 
