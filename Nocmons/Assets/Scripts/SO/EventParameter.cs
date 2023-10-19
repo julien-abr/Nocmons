@@ -18,6 +18,7 @@ public class EventParameter : ScriptableObject
     public float shadowFearPercentPoint2;
 
     [Header("LighteningGlobalParam")]
+    public List<GameObject> tunderSpawn;
     public float lighteningTimeBeforeDmg;
     public float lighteningFearPercent;
 
