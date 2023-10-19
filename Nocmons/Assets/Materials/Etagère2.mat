@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_TestSurface
+  m_Name: "Etag\xE8re2"
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -126,8 +126,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.4528302, g: 0.29324445, b: 0.20291919, a: 1}
-    - _Color: {r: 0.45283014, g: 0.29324442, b: 0.20291916, a: 1}
+    - _BaseColor: {r: 0.3207547, g: 0.22353885, b: 0.16763972, a: 1}
+    - _Color: {r: 0.32075468, g: 0.22353882, b: 0.16763967, a: 1}
     - _EmissionColor: {r: 0.005303849, g: 0.0012014944, b: 0.02830188, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
