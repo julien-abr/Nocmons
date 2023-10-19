@@ -330,7 +330,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9058959309610033110}
-  - component: {fileID: 7484036823811413452}
   m_Layer: 0
   m_Name: LeftMonster3
   m_TagString: Untagged
@@ -355,22 +354,6 @@ Transform:
   - {fileID: 4811667993240157296}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 13.777, y: -158.881, z: 0}
---- !u!114 &7484036823811413452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356200833910595785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9fbd4a9dcd312448da04c0ee94b91f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectsLink:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &1393424858892346773
 GameObject:
   m_ObjectHideFlags: 0

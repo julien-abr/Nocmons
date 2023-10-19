@@ -42,7 +42,19 @@ public class ShadowMovementV2 : MonoBehaviour
     private float _currentTimeMove;
     private float _maxTimeMove;
     private bool _canMove = true;
+
+
+
+    private GameObject _currentShadowLeft;
+    private GameObject _currentShadowMidle;
+    private GameObject _currentShadowRight;
     
+        
+        
+        
+    private bool firstPoseDone = false;
+    private bool secondPoseDone = false;
+    private bool thirdPoseDone = false;
     
     public void Init(int currentPhase, EventParameter eventParam, BearReference bearRef, EnemyDetection enemyDetection, RotationState spawnRot, int spawnPoint)
     {
@@ -85,10 +97,79 @@ public class ShadowMovementV2 : MonoBehaviour
         switch (_spawnRot)
         {
             case RotationState.Left:
+                if (!firstPoseDone)
+                {
+                    ShadowManager.instance.FirstShadow.SetActive(false);
+                    ShadowManager.instance.shadowSpawn1[0].SetActive(true);
+                    _currentShadowLeft = ShadowManager.instance.shadowSpawn1[0];
+                    firstPoseDone = true;
+
+                }
+                else if (firstPoseDone && !secondPoseDone)
+                {
+                    ShadowManager.instance.shadowSpawn1[0].SetActive(false);
+                    ShadowManager.instance.shadowSpawn2[0].SetActive(true);
+                    _currentShadowLeft = ShadowManager.instance.shadowSpawn2[0];
+
+                    secondPoseDone = true;
+                }
+                else if (firstPoseDone && secondPoseDone && !thirdPoseDone)
+                {
+                    ShadowManager.instance.shadowSpawn2[0].SetActive(false);
+                    ShadowManager.instance.shadowSpawn3[0].SetActive(true);
+                    thirdPoseDone = true;
+                }
                 return FindTransformInRow(0);
             case RotationState.Middle:
+                if (!firstPoseDone)
+                {
+                    ShadowManager.instance.FirstShadow.SetActive(false);
+                    ShadowManager.instance.shadowSpawn1[1].SetActive(true);
+                    _currentShadowMidle = ShadowManager.instance.shadowSpawn1[1];
+
+                    firstPoseDone = true;
+
+                }
+                else if (firstPoseDone && !secondPoseDone)
+                {
+                    ShadowManager.instance.shadowSpawn1[1].SetActive(false);
+                    ShadowManager.instance.shadowSpawn2[1].SetActive(true);
+                    _currentShadowMidle = ShadowManager.instance.shadowSpawn2[1];
+
+                    secondPoseDone = true;
+                }
+                else if (firstPoseDone && secondPoseDone && !thirdPoseDone)
+                {
+                    ShadowManager.instance.shadowSpawn2[1].SetActive(false);
+                    ShadowManager.instance.shadowSpawn3[1].SetActive(true);
+
+                    thirdPoseDone = true;
+                }
                 return FindTransformInRow(1);
             case RotationState.Right:
+                if (!firstPoseDone)
+                {
+                    ShadowManager.instance.FirstShadow.SetActive(false);
+                    ShadowManager.instance.shadowSpawn1[2].SetActive(true);
+                    _currentShadowRight = ShadowManager.instance.shadowSpawn1[2];
+
+                    firstPoseDone = true;
+
+                }
+                else if (firstPoseDone && !secondPoseDone)
+                {
+                    ShadowManager.instance.shadowSpawn1[2].SetActive(false);
+                    ShadowManager.instance.shadowSpawn2[2].SetActive(true);
+                    _currentShadowRight = ShadowManager.instance.shadowSpawn2[2];
+
+                    secondPoseDone = true;
+                }
+                else if (firstPoseDone && secondPoseDone && !thirdPoseDone)
+                {
+                    ShadowManager.instance.shadowSpawn2[2].SetActive(false);
+                    ShadowManager.instance.shadowSpawn3[2].SetActive(true);
+                    thirdPoseDone = true;
+                }
                 return FindTransformInRow(2);
             default:
                 return null;
@@ -105,6 +186,7 @@ public class ShadowMovementV2 : MonoBehaviour
                 return _eventParam.shadowSpawnThird[row].gameObject.transform;
             case 3:
                 return _eventParam.shadowSpawnFourth[row].gameObject.transform;
+
             case 4 : 
                 return transform;
             default:
@@ -163,6 +245,13 @@ public class ShadowMovementV2 : MonoBehaviour
             {
                 //Death coroutine
                 _enemyDetection.RemoveObject(gameObject);
+                
+                
+                //set active false la shadow
+                
+                
+                
+                
                 Destroy((transform.parent.gameObject));
             }
             _currentTime += Time.deltaTime;
@@ -196,9 +285,12 @@ public class ShadowMovementV2 : MonoBehaviour
             if (_currentTimeMove >= _maxTimeMove)
             {
                 _spawnPoint++;
+
                 transform.position = MoveToNextPosition().position;
                 if (_spawnPoint != 4)
                 {
+                    //set active false 
+                    ShadowManager.instance.shadowSpawn[_spawnPoint].SetActive(false);
                     _currentTimeMove = 0;
                     FindMaxTimeMoove();
                 }

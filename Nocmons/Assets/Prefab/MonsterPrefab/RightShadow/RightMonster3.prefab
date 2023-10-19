@@ -41,7 +41,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7120519484339035237}
-  - component: {fileID: 8960176653903653102}
   m_Layer: 0
   m_Name: RightMonster3
   m_TagString: Untagged
@@ -66,20 +65,6 @@ Transform:
   - {fileID: 5803848193376350553}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -84.973, y: 166.633, z: -9.67}
---- !u!114 &8960176653903653102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25193613508668110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9fbd4a9dcd312448da04c0ee94b91f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectsLink:
-  - {fileID: 0}
 --- !u!1 &306311095437053600
 GameObject:
   m_ObjectHideFlags: 0

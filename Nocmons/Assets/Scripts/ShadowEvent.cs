@@ -16,6 +16,9 @@ public class ShadowEvent : Event
     private int _currentPhase;
     
     private Transform actualSpawnPoint;
+
+    private bool firstLigneSpawn = false;
+    private bool secondLineSpawn = false;
     public void Init(int currentPhase)
     {
         _currentPhase = currentPhase;
@@ -25,11 +28,13 @@ public class ShadowEvent : Event
         {
             case 0:
                 int i = Random.Range(0, eventParameter.shadowSpawnFirst.Count);
+                firstLigneSpawn = true;
                 FindSpawnRot(i);
                 actualSpawnPoint = eventParameter.shadowSpawnFirst[i].transform;
                 break;
             case 1:
                 int j = Random.Range(0, eventParameter.shadowSpawnSecond.Count);
+                secondLineSpawn = true;
                 FindSpawnRot(j);
                 actualSpawnPoint = eventParameter.shadowSpawnSecond[j].transform;
                 break;
@@ -60,11 +65,17 @@ public class ShadowEvent : Event
         {
             case 0:
                 _spawnRot = RotationState.Left;
+                ShadowManager.instance.shadowSpawn[spawnInt].SetActive(true);
+                ShadowManager.instance.FirstShadow = ShadowManager.instance.shadowSpawn[spawnInt];
                 break;
             case 1:
+                ShadowManager.instance.shadowSpawn[spawnInt].SetActive(true);
+                ShadowManager.instance.FirstShadow = ShadowManager.instance.shadowSpawn[spawnInt];
                 _spawnRot = RotationState.Middle;
                 break;
             case 2:
+                ShadowManager.instance.shadowSpawn[spawnInt].SetActive(true);
+                ShadowManager.instance.FirstShadow = ShadowManager.instance.shadowSpawn[spawnInt];
                 _spawnRot = RotationState.Right;
                 break;
             default:
