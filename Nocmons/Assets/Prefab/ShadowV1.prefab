@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3392496506220873645}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -118,8 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f1659faf5af4f944bc7f2813d91c67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyTarget: {fileID: 91393354383378290, guid: 56872708e604ec141bb77ccae09fe072,
-    type: 3}
-  _enemySpeed: 1
-  _actualEnemySpeed: 0
   distanceState: 0

@@ -31512,74 +31512,6 @@ Transform:
   - {fileID: 1588637592}
   m_Father: {fileID: 76098614}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1783428458
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1783428461}
-  - component: {fileID: 1783428460}
-  - component: {fileID: 1783428459}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1783428459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783428458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &1783428460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783428458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &1783428461
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783428458}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1786075807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39068,7 +39000,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MidleMonster1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2567991419701406573, guid: 46ccc9e1a821ba64eaf416b63de0c2c0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -39271,7 +39204,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftMonster1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6319263057493812490, guid: 6be9c16ec0870b24ebc4098dc8864d47, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -39339,7 +39273,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftMonster4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7015641428653554070, guid: b4723fb43150f514e8bc35596445f5c6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -39626,7 +39561,8 @@ PrefabInstance:
       propertyPath: _objectsLink.Array.data[0]
       value: 
       objectReference: {fileID: 1588784980}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6900226332999739672, guid: 4d785b80e36baa847a2cbfbe31271ead, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -39813,7 +39749,8 @@ PrefabInstance:
       propertyPath: _objectsLink.Array.data[0]
       value: 
       objectReference: {fileID: 1518847267}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8960176653903653102, guid: 85da2a8ebe4a35049b5447dc6a9d5735, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -39881,7 +39818,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MidleMonster4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6619191650637717408, guid: ec858e577b039ac4cad71fbc092e7c7f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -39964,7 +39902,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7484036823811413452, guid: f77a40c36ba363e49ada2b24eb255a0a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -40047,7 +39986,8 @@ PrefabInstance:
       propertyPath: _objectsLink.Array.data[2]
       value: 
       objectReference: {fileID: 1620246412}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4245562684479306506, guid: e755a9bd51c314947b2b3be1a4665d87, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -40130,7 +40070,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightMonster2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2560630045155904264, guid: a1ce7072029959e459e9df21a295f145, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -40272,7 +40213,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5864156551742986335, guid: dba62a0caa9e8e542b1331a0755b2ba4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -40345,7 +40287,8 @@ PrefabInstance:
       propertyPath: _objectsLink.Array.data[0]
       value: 
       objectReference: {fileID: 1963418787}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3947590804962306679, guid: 037760bd04126a2459b57cdb165ee17a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -40418,7 +40361,8 @@ PrefabInstance:
       propertyPath: _objectsLink.Array.data[0]
       value: 
       objectReference: {fileID: 2295213103626012001}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8237085504560948468, guid: 1f3c02438260d8043a155b8bdb6d840a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -40441,7 +40385,6 @@ SceneRoots:
   - {fileID: 4710505594746068029}
   - {fileID: 1179218992}
   - {fileID: 1172469938}
-  - {fileID: 1783428461}
   - {fileID: 532551421}
   - {fileID: 1521904728}
   - {fileID: 946844738}
