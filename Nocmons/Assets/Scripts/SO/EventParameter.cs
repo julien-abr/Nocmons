@@ -22,7 +22,6 @@ public class EventParameter : ScriptableObject
     public float lighteningFearPercent;
 
     [Header("LightGlobalParam")] 
-    public List<GameObject> tunderSpawn;
     public float lightOnTime;
     public int lightNumberOfBattery;
     public float lightTimeBeforeRecharging;
@@ -54,6 +53,7 @@ public class ShadowParam
 {
     public float minTimeBeforeSpawn;
     public float maxTimeBeforeSpawn;
+    public float fearPercent;
     public List<int> shadowSpawnPoint = new List<int>();
     public float minTimeBeforeMoving;
     public float maxTimeBeforeMoving;
