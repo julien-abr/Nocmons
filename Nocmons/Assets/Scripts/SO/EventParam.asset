@@ -44,21 +44,21 @@ MonoBehaviour:
       minTimeBeforeSpawn: 4
       maxTimeBeforeSpawn: 12
   shadowSpawnFirst:
-  - {fileID: 7423913706798387133, guid: bcfbd1d5c050c5a4ea3554022cae8f5b, type: 3}
-  - {fileID: 3301741183378673020, guid: 655a185328b26384a9e4bfaddaea95de, type: 3}
-  - {fileID: 6237944574591238156, guid: 8077a4af3e69f5f42b904bc27937a467, type: 3}
+  - {fileID: 4866623951141477427, guid: 72c03a818ba2e384c98054e622f460be, type: 3}
+  - {fileID: 4361957912661716887, guid: 5e50da376b99466428778a5aa23c4918, type: 3}
+  - {fileID: 8559150956233498734, guid: 20c289211911af641b81ddf7a7edc9ac, type: 3}
   shadowSpawnSecond:
-  - {fileID: 7423913706798387133, guid: 9d9588e16023e8840b76a9ab3b4fc36c, type: 3}
-  - {fileID: 3301741183378673020, guid: c6898bb0408928c45a6486ecc82bb537, type: 3}
-  - {fileID: 6237944574591238156, guid: 01c76aaedce142a4da0c756b8b2b9364, type: 3}
+  - {fileID: 6157993582043824755, guid: 4756c9e2f4fcbc344af10c3e0c15c88e, type: 3}
+  - {fileID: 7176602122332595527, guid: 2266dce03a1b2f643ac2d8666290c7b7, type: 3}
+  - {fileID: 496191828375307466, guid: eb82d1e404477b847bf1f345cd1c00cb, type: 3}
   shadowSpawnThird:
-  - {fileID: 7423913706798387133, guid: 843d639505ada274ab26b14c79b420e3, type: 3}
-  - {fileID: 3301741183378673020, guid: 3339df2058f1fa640b1e53b75af9bea7, type: 3}
-  - {fileID: 6237944574591238156, guid: d473eb1ea82aea84cac3759406128227, type: 3}
+  - {fileID: 2602505111007454090, guid: 75bb32eb04d806a4f877f1d68cd3533f, type: 3}
+  - {fileID: 8495494872394654172, guid: 7f32094fb0f1625499b507507bb229c7, type: 3}
+  - {fileID: 849078020276539407, guid: 9dfed8d8edc39ba42a00e0120fb344c6, type: 3}
   shadowSpawnFourth:
-  - {fileID: 7423913706798387133, guid: 453c80cfa96388a41b59011b04a1ba28, type: 3}
-  - {fileID: 3301741183378673020, guid: d109cd265c21a2944a3c8fddeeff579b, type: 3}
-  - {fileID: 6237944574591238156, guid: 5e2fd0ca6fb303b42bbb4e168e0a385c, type: 3}
+  - {fileID: 7518223828620137714, guid: de8ed87f9728b964eb56177876b5872f, type: 3}
+  - {fileID: 4560065613812136997, guid: 3b4a4d2efffe46f48a269aac9cd62511, type: 3}
+  - {fileID: 3796178499588650591, guid: 59a8db8093eb0444ab3fff9db8875d3e, type: 3}
   shadowTimeBeforeDmg: 2
   shadowFearPercentPoint0: 5
   shadowFearPercentPoint1: 15
