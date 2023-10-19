@@ -36,7 +36,7 @@ public class LightSystem : MonoBehaviour
     {
         if (_currentBattery == 0)
         {
-            AudioManager.instance.Play("NoMoreBattery");
+            AudioManager.instance?.Play("NoMoreBattery");
         }
         UseLight();
     }
@@ -58,10 +58,10 @@ public class LightSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(time * amount);
             _currentBattery += amount;
-            AudioManager.instance.Play("PileIsReload");
+            AudioManager.instance?.Play("PileIsReload");
             if (_currentBattery == 4)
             {
-                AudioManager.instance.Play("PileFullBattery");
+                AudioManager.instance?.Play("PileFullBattery");
 
             }
         }
@@ -75,12 +75,12 @@ public class LightSystem : MonoBehaviour
         
         IEnumerator LightDuration(float time)
         {
-            AudioManager.instance.Play("LightOn");
+            AudioManager.instance?.Play("LightOn");
             OnLightActivate?.Invoke();
             usingLight = true;
             _light.SetActive(true);
             yield return new WaitForSeconds(time);
-            AudioManager.instance.Play("LightOff");
+            AudioManager.instance?.Play("LightOff");
             _light.SetActive(false);
             usingLight = false;
             OnLightDeactivate?.Invoke();

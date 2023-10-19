@@ -6,8 +6,10 @@ using UnityEngine.InputSystem;
 
 public class BearActions : MonoBehaviour, IBearActions
 {
+    [SerializeField] private BearReference _bearReference;
     private PlayerControls _controls;
     private bool _canUseInputs = true;
+    private bool _isDie = false;
     public event Action EventChestBtn;
     public event Action EventCanceledChestBtn;
     public event Action EventHideLeftEye;
@@ -23,6 +25,7 @@ public class BearActions : MonoBehaviour, IBearActions
     {
         _controls = new PlayerControls();
 
+        _bearReference.Instance.GetComponent<BearState>().OnDied += Dead;
         _controls.Gameplay.chestButton.performed += ctx => ChestBtn();
         _controls.Gameplay.chestButton.canceled += ctx => CanceledChestBtn();
         _controls.Gameplay.eyesLeftButton.performed += ctx => ShowLeftEye();
@@ -38,7 +41,7 @@ public class BearActions : MonoBehaviour, IBearActions
 
     public void ChestBtn()
     {
-        if (_canUseInputs)
+        if (_canUseInputs && !_isDie)
         {
             _canUseInputs = false;
             EventChestBtn?.Invoke();
@@ -48,13 +51,17 @@ public class BearActions : MonoBehaviour, IBearActions
 
     public void CanceledChestBtn()
     {
-        EventCanceledChestBtn?.Invoke();
-        _canUseInputs = true;
+        if (!_isDie)
+        {
+            EventCanceledChestBtn?.Invoke();
+            _canUseInputs = true;  
+        }
+        
     }
 
     public void HideLeftEye()
     {
-        if (_canUseInputs)
+        if (_canUseInputs && !_isDie)
         {
             EventHideLeftEye?.Invoke();
         }
@@ -62,7 +69,7 @@ public class BearActions : MonoBehaviour, IBearActions
     
     public void HideRightEye()
     {
-        if (_canUseInputs)
+        if (_canUseInputs && !_isDie)
         {
             EventHideRightEye?.Invoke();
         }
@@ -70,7 +77,7 @@ public class BearActions : MonoBehaviour, IBearActions
 
     public void ShowLeftEye()
     {
-        if (_canUseInputs)
+        if (_canUseInputs && !_isDie)
         {
             EventShowLeftEye?.Invoke();
         }
@@ -78,7 +85,7 @@ public class BearActions : MonoBehaviour, IBearActions
     
     public void ShowRightEye()
     {
-        if (_canUseInputs)
+        if (_canUseInputs && !_isDie)
         {
             EventShowRightEye?.Invoke();
         }
@@ -86,14 +93,14 @@ public class BearActions : MonoBehaviour, IBearActions
 
     public void HandBtn()
     {
-        if (_canUseInputs)
+        if (_canUseInputs && !_isDie)
         {
             EventHandBtn?.Invoke();
         }
     }
     public void HeadBtn()
     {
-        if (_canUseInputs)
+        if (_canUseInputs && !_isDie)
         {
             EventHeadBtn?.Invoke();
         }
@@ -101,7 +108,7 @@ public class BearActions : MonoBehaviour, IBearActions
 
     public void CamRotLeft()
     {
-        if (_canUseInputs)
+        if (_canUseInputs && !_isDie)
         {
             EventCamRotateLeft?.Invoke();
         }
@@ -109,7 +116,7 @@ public class BearActions : MonoBehaviour, IBearActions
 
     public void CamRotRight()
     {
-        if (_canUseInputs)
+        if (_canUseInputs && !_isDie)
         {
             EventCamRotateRight?.Invoke();
         }
@@ -117,10 +124,15 @@ public class BearActions : MonoBehaviour, IBearActions
 
     public void CamRotMiddle()
     {
-        if (_canUseInputs)
+        if (_canUseInputs && !_isDie)
         {
             EventCamRotateMiddle?.Invoke();
         }
+    }
+
+    public void Dead()
+    {
+        _isDie = false;
     }
 
 

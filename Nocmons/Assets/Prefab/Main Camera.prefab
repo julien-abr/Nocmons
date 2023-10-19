@@ -315,6 +315,8 @@ GameObject:
   - component: {fileID: 5011069317412801258}
   - component: {fileID: 3896849300892190301}
   - component: {fileID: 6978083436805283712}
+  - component: {fileID: 9180731543548081965}
+  - component: {fileID: 1342838957908574465}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -458,6 +460,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bearRef: {fileID: 11400000, guid: 5b8edc3bcd0d8ac49a856277e235f30f, type: 2}
   eventParameter: {fileID: 11400000, guid: e41027cab5b7a6b4db0f836fa7cffc40, type: 2}
+--- !u!114 &9180731543548081965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267694681463742303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405bad29b2b998c408059182c189d9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnableIMU: 1
+  EnableLocalize: 1
+--- !u!114 &1342838957908574465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267694681463742303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66213dd7cf031c428fbbd9de971f593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stick: []
+  _gyro: {x: 0, y: 0, z: 0}
+  _accel: {x: 0, y: 0, z: 0}
+  jc_ind: 0
+  _orientation: {x: 0, y: 0, z: 0, w: 0}
+  _orientationJoycon: {x: 0, y: 0, z: 0, w: 0}
+  _orientationReset: {x: 0, y: 0, z: 0, w: 0}
+  _bearReference: {fileID: 11400000, guid: 5b8edc3bcd0d8ac49a856277e235f30f, type: 2}
 --- !u!1 &6971319940566336518
 GameObject:
   m_ObjectHideFlags: 0

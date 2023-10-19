@@ -34,82 +34,129 @@ public class ShadowMovementV2 : MonoBehaviour
     private bool soundPlayed75;
     private bool soundPlayed100;
     
+    //Spawn
+    private RotationState _spawnRot;
+    private int _spawnPoint;
+    private int _currentPhase;
+    private EventParameter _eventParam;
+    private float _currentTimeMove;
+    private float _maxTimeMove;
+    private bool _canMove = true;
     
-    public void Init(float maxSpeed, float timeBeforeDamaging, float dmg0, float dmg1, float dmg2, BearReference bearRef, EnemyDetection enemyDetection)
+    
+    public void Init(int currentPhase, EventParameter eventParam, BearReference bearRef, EnemyDetection enemyDetection, RotationState spawnRot, int spawnPoint)
     {
-        distanceState = distance.none;
-        _startPosition = transform.position;
+        switch (_spawnPoint)
+        {
+            case 0:
+                distanceState = distance.none;
+                break;
+            case 1:
+                distanceState = distance.twentyFive;
+                break;
+        }
+        
         
         _bearState = bearRef.Instance.GetComponent<BearState>();
-        _bearTransform = bearRef.Instance.GetComponent<Transform>();
-        _totalDistance = Vector3.Distance(_startPosition, _bearTransform.position);
-            
-        _maxSpeed = maxSpeed;
-        _speed = _maxSpeed;
-        _timeBeforeDamagingPlayer = timeBeforeDamaging;
-        _damagePoint0 = dmg0;
-        _damagePoint1 = dmg1;
-        _damagePoint2 = dmg2;
+        _currentPhase = currentPhase;
+        _eventParam = eventParam;
+        _timeBeforeDamagingPlayer = _eventParam.shadowTimeBeforeDmg;
+        _damagePoint0 = _eventParam.shadowFearPercentPoint0;
+        _damagePoint1 = _eventParam.shadowFearPercentPoint1;
+        _damagePoint2 = _eventParam.shadowFearPercentPoint2;
         _enemyDetection = enemyDetection;
          _usingLight = _enemyDetection._isUsingLight;
-        
-        isInitialized = true;
+         _spawnRot = spawnRot;
+         _spawnPoint = spawnPoint;
+         FindMaxTimeMoove();
+         isInitialized = true;
     }
-    
 
-    void Update()
+    void FindMaxTimeMoove()
     {
-        if (_bearTransform != null && isInitialized)
+        float min = _eventParam.EventPhases[_currentPhase].shadowParam.minTimeBeforeMoving;
+        float max = _eventParam.EventPhases[_currentPhase].shadowParam.maxTimeBeforeSpawn;
+        _maxTimeMove = Random.Range(min, max);
+  
+    }
+    private Transform MoveToNextPosition()
+    {
+        SetDistanceState();
+        switch (_spawnRot)
         {
-            var speed = (_speed * Time.deltaTime) / 4;
-            transform.position = Vector3.MoveTowards(transform.position, _bearTransform.position, speed);
-        
-            float distanceCovered = Vector3.Distance(_startPosition, transform.position);
+            case RotationState.Left:
+                return FindTransformInRow(0);
+            case RotationState.Middle:
+                return FindTransformInRow(1);
+            case RotationState.Right:
+                return FindTransformInRow(2);
+            default:
+                return null;
+        }
+    }
 
-            float percentageCovered = (distanceCovered / _totalDistance) * 100;
+    private Transform FindTransformInRow(int row) //0 : left, 1:middle, 2:right
+    {
+        switch (_spawnPoint)
+        {
+            case 1:
+                return _eventParam.shadowSpawnSecond[row].gameObject.transform;
+            case 2:
+                return _eventParam.shadowSpawnThird[row].gameObject.transform;
+            case 3:
+                return _eventParam.shadowSpawnFourth[row].gameObject.transform;
+            case 4 : 
+                return transform;
+            default:
+                return null;
+        }
+    }
 
-            if (percentageCovered >= 25)
-            {
-                
-                distanceState = distance.twentyFive;
+    void SetDistanceState()
+    {
+        switch (_spawnPoint)
+        {
+            case 1:
                 if (!soundPlayed25)
                 {
                     SFXRandom();
                     soundPlayed25 = true;
                 }
-            }
-            if (percentageCovered >= 50)
-            {
-                distanceState = distance.fifty;
+                distanceState = distance.twentyFive;
+                break;
+            case 2:
                 if (!soundPlayed50)
                 {
                     SFXRandom();
                     soundPlayed50 = true;
                 }
-                    
-                
-            }
-            if (percentageCovered >= 75)
-            {
-                distanceState = distance.seventyFive;
+                distanceState = distance.fifty;
+                break;
+            case 3:
                 if (!soundPlayed75)
                 {
                     SFXRandom();
                     soundPlayed75 = true;
                 }
-            }
-            if (percentageCovered >= 100)
-            {
-                distanceState = distance.isFinish;
+                distanceState = distance.seventyFive;
+                break;
+            case 4:
                 if (!soundPlayed100)
                 {
                     DeathSFX();
                     soundPlayed100 = true;
                 }
-                _bearState.Die();
-            }
+                distanceState = distance.isFinish;
+                _bearState.ShadowDie(_spawnRot);
+                
+                break;
         }
-
+    }
+    
+    void Update()
+    {
+        if(!isInitialized) {return;}
+        
         if (isSeen)
         {
             if (_usingLight)
@@ -119,7 +166,7 @@ public class ShadowMovementV2 : MonoBehaviour
                 Destroy((transform.parent.gameObject));
             }
             _currentTime += Time.deltaTime;
-
+    
             if (_currentTime >= _timeBeforeDamagingPlayer)
             {
                 switch (distanceState)
@@ -137,32 +184,50 @@ public class ShadowMovementV2 : MonoBehaviour
                         _bearState.TakeFear(_damagePoint2);
                         break;
                 }
-
+    
                 _currentTime = 0;
             }
         }
+        else
+        {
+            if (!_canMove) { return;}
+            
+            _currentTimeMove += Time.deltaTime;
+            if (_currentTimeMove >= _maxTimeMove)
+            {
+                _spawnPoint++;
+                transform.position = MoveToNextPosition().position;
+                if (_spawnPoint != 4)
+                {
+                    _currentTimeMove = 0;
+                    FindMaxTimeMoove();
+                }
+                else { _canMove = false; }
+            }
+ 
+        }
+        
     }
-
     void SFXRandom()
     {
         int i = Random.Range(0, 3);
         switch (i)
         {
             case 0 :
-                AudioManager.instance.PlayRandom(SoundState.SCRATCH);
+                AudioManager.instance?.PlayRandom(SoundState.SCRATCH);
                 break;
             case 1:
-                AudioManager.instance.PlayRandom(SoundState.CRACKINGFLOOR);
+                AudioManager.instance?.PlayRandom(SoundState.CRACKINGFLOOR);
                 break;
             case 2:
-                AudioManager.instance.PlayRandom(SoundState.FALLINGOBJECT);
+                AudioManager.instance?.PlayRandom(SoundState.FALLINGOBJECT);
                 break;
         }
     }
 
     void DeathSFX()
     {
-        AudioManager.instance.PlayRandom(SoundState.BREATH);
+        AudioManager.instance?.PlayRandom(SoundState.BREATH);
     }
     public void SetIsSeen(bool result)
     {
@@ -171,11 +236,6 @@ public class ShadowMovementV2 : MonoBehaviour
         if (!isSeen)
         {
             _currentTime = 0;
-            _speed = _maxSpeed;
-        }
-        else
-        {
-            _speed = 0;
         }
     }
 

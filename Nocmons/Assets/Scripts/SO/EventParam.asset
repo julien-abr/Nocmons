@@ -17,7 +17,6 @@ MonoBehaviour:
     shadowParam:
       minTimeBeforeSpawn: 6
       maxTimeBeforeSpawn: 8
-      fearPercent: 0
       shadowSpawnPoint: 00000000
       minTimeBeforeMoving: 5
       maxTimeBeforeMoving: 7
@@ -28,7 +27,6 @@ MonoBehaviour:
     shadowParam:
       minTimeBeforeSpawn: 4
       maxTimeBeforeSpawn: 6
-      fearPercent: 0
       shadowSpawnPoint: 0000000001000000
       minTimeBeforeMoving: 3
       maxTimeBeforeMoving: 5
@@ -39,19 +37,38 @@ MonoBehaviour:
     shadowParam:
       minTimeBeforeSpawn: 2
       maxTimeBeforeSpawn: 4
-      fearPercent: 0
       shadowSpawnPoint: 0000000001000000
       minTimeBeforeMoving: 2
       maxTimeBeforeMoving: 5
     lighteningParam:
       minTimeBeforeSpawn: 4
       maxTimeBeforeSpawn: 12
+  shadowSpawnFirst:
+  - {fileID: 7423913706798387133, guid: bcfbd1d5c050c5a4ea3554022cae8f5b, type: 3}
+  - {fileID: 3301741183378673020, guid: 655a185328b26384a9e4bfaddaea95de, type: 3}
+  - {fileID: 6237944574591238156, guid: 8077a4af3e69f5f42b904bc27937a467, type: 3}
+  shadowSpawnSecond:
+  - {fileID: 7423913706798387133, guid: 9d9588e16023e8840b76a9ab3b4fc36c, type: 3}
+  - {fileID: 3301741183378673020, guid: c6898bb0408928c45a6486ecc82bb537, type: 3}
+  - {fileID: 6237944574591238156, guid: 01c76aaedce142a4da0c756b8b2b9364, type: 3}
+  shadowSpawnThird:
+  - {fileID: 7423913706798387133, guid: 843d639505ada274ab26b14c79b420e3, type: 3}
+  - {fileID: 3301741183378673020, guid: 3339df2058f1fa640b1e53b75af9bea7, type: 3}
+  - {fileID: 6237944574591238156, guid: d473eb1ea82aea84cac3759406128227, type: 3}
+  shadowSpawnFourth:
+  - {fileID: 7423913706798387133, guid: 453c80cfa96388a41b59011b04a1ba28, type: 3}
+  - {fileID: 3301741183378673020, guid: d109cd265c21a2944a3c8fddeeff579b, type: 3}
+  - {fileID: 6237944574591238156, guid: 5e2fd0ca6fb303b42bbb4e168e0a385c, type: 3}
   shadowTimeBeforeDmg: 2
   shadowFearPercentPoint0: 5
   shadowFearPercentPoint1: 15
   shadowFearPercentPoint2: 30
   lighteningTimeBeforeDmg: 2
   lighteningFearPercent: 20
+  tunderSpawn:
+  - {fileID: 8534935974061419049, guid: 2ef499c2aff28384b8d31eea35ba9b81, type: 3}
+  - {fileID: 3033512287307574037, guid: dd780680d0798c54c9a69c8a48cf1aa3, type: 3}
+  - {fileID: 1074117706282677788, guid: d2ebd30a69cb9f64692b271f74b463df, type: 3}
   lightOnTime: 2
   lightNumberOfBattery: 4
   lightTimeBeforeRecharging: 10

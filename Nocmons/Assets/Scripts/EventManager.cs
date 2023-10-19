@@ -20,7 +20,7 @@ public class EventManager : MonoBehaviour
     private BearState bearState;
     
     private int _currentPhase;
-    private bool alreadyDone = false;
+    private bool alreadyDone = true;
     public void Init()
     {
         if (!eventParameter) { return; }
@@ -94,11 +94,13 @@ public class EventManager : MonoBehaviour
         {
             case EventType.Lightning:
                 GameObject EventLightning = Instantiate(lightningEvent, transform.position, Quaternion.identity);
+                AudioManager.instance?.Play("LightningNear");
                 EventLightning.transform.parent = eventParent.transform;
                 EventLightning.GetComponent<LightningEvent>().Init();
                 break;
             case EventType.Shadow:
-                GameObject EventShadow = Instantiate(ShadowEvent, transform.position, Quaternion.identity);
+                GameObject EventShadow = Instantiate(ShadowEvent, eventParameter.tunderSpawn[tunderSpawn()].transform.position, Quaternion.identity);
+                AudioManager.instance?.Play("ShadowSpawn");
                 EventShadow.transform.parent = eventParent.transform;
                 EventShadow.GetComponent<ShadowEvent>().Init(_currentPhase);
                 break;
@@ -113,6 +115,26 @@ public class EventManager : MonoBehaviour
         }
         
     }
+
+    private int tunderSpawn()
+    {
+        if (bearState.CurrentRot == RotationState.Left)
+        {
+            return 0;
+        }
+        if (bearState.CurrentRot == RotationState.Middle)
+        {
+            return 1;
+        }
+        if (bearState.CurrentRot == RotationState.Right)
+        {
+            return 2;
+        }
+
+        return 0;
+    }
+    
+    
 }
 
 enum EventType

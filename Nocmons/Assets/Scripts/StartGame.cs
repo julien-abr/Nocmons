@@ -10,7 +10,7 @@ public class StartGame : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.Play("MenuMusic");
+        AudioManager.instance?.Play("MenuMusic");
     }
 
     private void Update()
@@ -19,9 +19,9 @@ public class StartGame : MonoBehaviour
         {
             if (!_oneShot)
             {
-                AudioManager.instance.StopMusic("MenuMusic");
-                AudioManager.instance.Play("PressAnyButton");
-                AudioManager.instance.Play("BedRoomMusic1");
+                AudioManager.instance?.StopMusic("MenuMusic");
+                AudioManager.instance?.Play("PressAnyButton");
+                AudioManager.instance?.Play("BedRoomMusic1");
                 SceneManager.LoadScene("Julien");
                 _oneShot = true;
             }

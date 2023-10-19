@@ -16,18 +16,22 @@ public class JoyconHead : MonoBehaviour
 	public Quaternion _orientation;
 	[SerializeField] Quaternion _orientationJoycon;
 	[SerializeField] Quaternion _orientationReset;
-	[SerializeField] private RotationState currentRot;
 	private cameraMovement _camMovement;
+
+
+	[SerializeField] private BearReference _bearReference;
+	private BearState _bearState;
 	void Start()
 	{
-		currentRot = RotationState.Middle;
+		_bearState = _bearReference.Instance.GetComponent<BearState>();
+		 _bearState.ChangeRotationState(RotationState.Middle);
 		_gyro = new Vector3(0, 0, 0);
 		_accel = new Vector3(0, 0, 0);
 		// get the public Joycon array attached to the JoyconManager in scene
 		joycons = JoyconManager.Instance.j;
 		if (joycons.Count < jc_ind + 1)
 		{
-			Destroy(gameObject);
+			return;
 		}
 		_camMovement = GetComponent<cameraMovement>();
 	}
@@ -89,9 +93,10 @@ public class JoyconHead : MonoBehaviour
 
 	private void OnDirectionChanged(RotationState newRot)
 	{
-		if (newRot == currentRot) return;
+		if (newRot == _bearState.CurrentRot) return;
 		
-		currentRot = newRot;
+		_bearState.ChangeRotationState(newRot);
+		
 		switch (newRot)
 		{
 			case RotationState.Left:
@@ -108,10 +113,11 @@ public class JoyconHead : MonoBehaviour
 		}
 	}
 
-	enum RotationState
-	{
-		Left,
-		Middle,
-		Right,
-	}
+
+}
+public enum RotationState
+{
+	Left,
+	Middle,
+	Right,
 }

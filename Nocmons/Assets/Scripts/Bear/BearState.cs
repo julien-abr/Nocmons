@@ -9,7 +9,9 @@ public class BearState : MonoBehaviour
     //Inspector var
     [SerializeField] private EventParameter eventParameter;
     [SerializeField] private LightSystem lightsystem;
-    
+    private RotationState _currentRot;
+    public RotationState CurrentRot => _currentRot;
+
     //Fear value
     private const float _maxFearValue = 100;
     [SerializeField] private float currentFearValue;
@@ -92,6 +94,12 @@ public class BearState : MonoBehaviour
         OnDied?.Invoke();
     }
 
+    public void ShadowDie(RotationState state)
+    {
+        Die();
+        //Rotate Cam
+    }
+
     public void Win()
     {
         Debug.Log("Win");
@@ -117,6 +125,11 @@ public class BearState : MonoBehaviour
             lightsystem.RemoveBattery(_bearSpeakingBatteryNeeded);
             lightsystem.Recharge(_bearSpeakingBatteryNeeded);
         }
+    }
+
+    public void ChangeRotationState(RotationState newState)
+    {
+        _currentRot = newState;
     }
     
 }

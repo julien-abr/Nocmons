@@ -8,6 +8,10 @@ public class EventParameter : ScriptableObject
     public EventPhase[] EventPhases = new EventPhase[3];
 
     [Header("ShadowGlobalParam")]
+    public List<GameObject> shadowSpawnFirst;
+    public List<GameObject> shadowSpawnSecond;
+    public List<GameObject> shadowSpawnThird;
+    public List<GameObject> shadowSpawnFourth;
     public float shadowTimeBeforeDmg;
     public float shadowFearPercentPoint0;
     public float shadowFearPercentPoint1;
@@ -18,6 +22,7 @@ public class EventParameter : ScriptableObject
     public float lighteningFearPercent;
 
     [Header("LightGlobalParam")] 
+    public List<GameObject> tunderSpawn;
     public float lightOnTime;
     public int lightNumberOfBattery;
     public float lightTimeBeforeRecharging;
