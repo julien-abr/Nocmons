@@ -20,7 +20,7 @@ public class EventManager : MonoBehaviour
     private BearState bearState;
     
     private int _currentPhase;
-    private bool alreadyDone = true;
+    private bool alreadyDone = false;
     public void Init()
     {
         if (!eventParameter) { return; }
