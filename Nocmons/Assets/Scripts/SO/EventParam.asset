@@ -69,7 +69,7 @@ MonoBehaviour:
   - {fileID: 8534935974061419049, guid: 2ef499c2aff28384b8d31eea35ba9b81, type: 3}
   - {fileID: 3033512287307574037, guid: dd780680d0798c54c9a69c8a48cf1aa3, type: 3}
   - {fileID: 1074117706282677788, guid: d2ebd30a69cb9f64692b271f74b463df, type: 3}
-  lightOnTime: 2
+  lightOnTime: 1
   lightNumberOfBattery: 4
   lightTimeBeforeRecharging: 10
   cuddlingFearPercent: 2
