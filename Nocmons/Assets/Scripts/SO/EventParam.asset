@@ -76,6 +76,6 @@ MonoBehaviour:
   bearSpeakingFearPercent: 20
   bearSpeakingNumberOfBatteryNeeded: 3
   cameraRotateSpeed: 3
-  cameraLeft: {x: 0, y: -45, z: 0}
-  cameraMiddle: {x: 0, y: 0, z: 0}
-  cameraRight: {x: 0, y: 45, z: 0}
+  cameraLeft: {x: 0, y: 20, z: 0}
+  cameraMiddle: {x: 0, y: 80, z: 0}
+  cameraRight: {x: 0, y: 150, z: 0}
