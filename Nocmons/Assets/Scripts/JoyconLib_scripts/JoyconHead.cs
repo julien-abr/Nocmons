@@ -33,7 +33,7 @@ public class JoyconHead : MonoBehaviour
 		{
 			return;
 		}
-		_camMovement = GetComponent<cameraMovement>();
+		_camMovement = GetComponentInParent<cameraMovement>();
 	}
 
 	// Update is called once per frame

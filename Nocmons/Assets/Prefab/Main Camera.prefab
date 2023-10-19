@@ -618,6 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba706902ba863944ab93f24032d59f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bearReference: {fileID: 11400000, guid: 5b8edc3bcd0d8ac49a856277e235f30f, type: 2}
 --- !u!114 &251355053056510835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,6 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventParameter: {fileID: 11400000, guid: e41027cab5b7a6b4db0f836fa7cffc40, type: 2}
   lightsystem: {fileID: 7335500748748621193}
+  _cameraMovement: {fileID: 6978083436805283712}
   currentFearValue: 50
 --- !u!114 &7335500748748621193
 MonoBehaviour:
