@@ -33026,9 +33026,21 @@ MonoBehaviour:
   - {fileID: 895657607047285457}
   - {fileID: 3656723053551033943}
   - {fileID: 8063695853163515935}
-  _currentShadowLeft: {fileID: 0}
-  _currentShadowMidle: {fileID: 0}
-  _currentShadowRight: {fileID: 0}
+  _currentShadowLeft:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _currentShadowMidle:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _currentShadowRight:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1892103222
 Transform:
   m_ObjectHideFlags: 0
