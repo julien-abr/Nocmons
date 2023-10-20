@@ -18,30 +18,30 @@ MonoBehaviour:
       minTimeBeforeSpawn: 6
       maxTimeBeforeSpawn: 8
       shadowSpawnPoint: 00000000
-      minTimeBeforeMoving: 5
-      maxTimeBeforeMoving: 7
+      minTimeBeforeMoving: 7
+      maxTimeBeforeMoving: 9
     lighteningParam:
-      minTimeBeforeSpawn: 6
+      minTimeBeforeSpawn: 10
       maxTimeBeforeSpawn: 12
   - PhaseDuration: 120
     shadowParam:
       minTimeBeforeSpawn: 4
       maxTimeBeforeSpawn: 6
       shadowSpawnPoint: 0000000001000000
-      minTimeBeforeMoving: 3
-      maxTimeBeforeMoving: 5
+      minTimeBeforeMoving: 5
+      maxTimeBeforeMoving: 7
     lighteningParam:
-      minTimeBeforeSpawn: 5
+      minTimeBeforeSpawn: 8
       maxTimeBeforeSpawn: 12
   - PhaseDuration: 60
     shadowParam:
-      minTimeBeforeSpawn: 2
-      maxTimeBeforeSpawn: 4
+      minTimeBeforeSpawn: 4
+      maxTimeBeforeSpawn: 6
       shadowSpawnPoint: 0000000001000000
       minTimeBeforeMoving: 2
       maxTimeBeforeMoving: 5
     lighteningParam:
-      minTimeBeforeSpawn: 4
+      minTimeBeforeSpawn: 6
       maxTimeBeforeSpawn: 12
   shadowSpawnFirst:
   - {fileID: 7359387549025433609, guid: 6be9c16ec0870b24ebc4098dc8864d47, type: 3}
@@ -59,10 +59,10 @@ MonoBehaviour:
   - {fileID: 8426186804611975826, guid: b4723fb43150f514e8bc35596445f5c6, type: 3}
   - {fileID: 7489484737543052913, guid: ec858e577b039ac4cad71fbc092e7c7f, type: 3}
   - {fileID: 6602801932078677820, guid: dba62a0caa9e8e542b1331a0755b2ba4, type: 3}
-  shadowTimeBeforeDmg: 2
+  shadowTimeBeforeDmg: 1
   shadowFearPercentPoint0: 5
   shadowFearPercentPoint1: 15
-  shadowFearPercentPoint2: 30
+  shadowFearPercentPoint2: 25
   lighteningTimeBeforeDmg: 2
   lighteningFearPercent: 20
   tunderSpawn:
@@ -71,10 +71,10 @@ MonoBehaviour:
   - {fileID: 2675057627096852588, guid: 6886b99b5e07de141b6eed473e0f69a9, type: 3}
   lightOnTime: 1
   lightNumberOfBattery: 4
-  lightTimeBeforeRecharging: 10
-  cuddlingFearPercent: 2
+  lightTimeBeforeRecharging: 12
+  cuddlingFearPercent: 5
   bearSpeakingFearPercent: 20
-  bearSpeakingNumberOfBatteryNeeded: 3
+  bearSpeakingNumberOfBatteryNeeded: 2
   cameraRotateSpeed: 3
   cameraLeft: {x: 0, y: 20, z: 0}
   cameraMiddle: {x: 0, y: 80, z: 0}
