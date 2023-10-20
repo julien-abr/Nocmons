@@ -65,18 +65,20 @@ public class ShadowEvent : Event
         {
             case 0:
                 _spawnRot = RotationState.Left;
-                ShadowManager.instance.shadowSpawn[spawnInt].SetActive(true);
-                ShadowManager.instance.FirstShadow = ShadowManager.instance.shadowSpawn[spawnInt];
+                ShadowManager.instance._currentShadowLeft = ShadowManager.instance.shadowSpawn[spawnInt];
+                ShadowManager.instance._currentShadowLeft.SetActive(true);
                 break;
             case 1:
-                ShadowManager.instance.shadowSpawn[spawnInt].SetActive(true);
-                ShadowManager.instance.FirstShadow = ShadowManager.instance.shadowSpawn[spawnInt];
                 _spawnRot = RotationState.Middle;
+                ShadowManager.instance._currentShadowMidle = ShadowManager.instance.shadowSpawn[spawnInt];
+                ShadowManager.instance._currentShadowMidle.SetActive(true);
+
                 break;
             case 2:
-                ShadowManager.instance.shadowSpawn[spawnInt].SetActive(true);
-                ShadowManager.instance.FirstShadow = ShadowManager.instance.shadowSpawn[spawnInt];
                 _spawnRot = RotationState.Right;
+                ShadowManager.instance._currentShadowRight = ShadowManager.instance.shadowSpawn[spawnInt];
+                ShadowManager.instance._currentShadowRight.SetActive(true);
+
                 break;
             default:
                 Debug.Log("Trop de spawn point shadow");
