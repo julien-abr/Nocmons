@@ -20,7 +20,9 @@ public class Environment : MonoBehaviour
     [Header("Stats")]
     [SerializeField] float _lightingDuration;
     [SerializeField] AnimationCurve _lightingIntensityOverTime;
-
+    void Start(){
+        ColorStart();
+    }
 
     //t
     [ContextMenu("thunder")]
@@ -50,5 +52,12 @@ public class Environment : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    [ContextMenu("trestons les couleurs")]
+    void ColorStart(){
+        RenderSettings.ambientSkyColor = _skyColor;
+        RenderSettings.ambientEquatorColor = _equatorColor;
+        RenderSettings.ambientGroundColor = _groundColor;
     }
 }
