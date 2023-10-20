@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: BedRoomMusic1
-    clip: {fileID: 8300000, guid: c234e3257b97a66488a399df05efcfa5, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: f4dc7558aab72204ba47e81fdfba9165, type: 3}
+    volume: 0.4
     pitch: 1
     loop: 1
     audioMixer: {fileID: -3621787668656368800, guid: 19cd71325b5f0864884f076a16b2d0df,
@@ -55,7 +55,7 @@ MonoBehaviour:
     actualSound: 1
   - name: BedRoomMusic2
     clip: {fileID: 8300000, guid: f4dc7558aab72204ba47e81fdfba9165, type: 3}
-    volume: 1
+    volume: 0.4
     pitch: 1
     loop: 1
     audioMixer: {fileID: -3621787668656368800, guid: 19cd71325b5f0864884f076a16b2d0df,
@@ -63,7 +63,7 @@ MonoBehaviour:
     actualSound: 1
   - name: MenuMusic
     clip: {fileID: 8300000, guid: 6e33eb10101a83c478d32a745edb802e, type: 3}
-    volume: 1
+    volume: 0.3
     pitch: 1
     loop: 1
     audioMixer: {fileID: -3621787668656368800, guid: 19cd71325b5f0864884f076a16b2d0df,
@@ -294,7 +294,7 @@ MonoBehaviour:
       type: 2}
     actualSound: 0
   - name: LightningNear
-    clip: {fileID: 8300000, guid: 0327c227093035f45a0592e83562bfcb, type: 3}
+    clip: {fileID: 8300000, guid: c02bf4a4d4a9c24418ac0a1f422122b8, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
     actualSound: 0
   - name: ShadowSpawn
     clip: {fileID: 8300000, guid: fb1e060b0df05be4b91bf19321994c1a, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     loop: 0
     audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
@@ -319,7 +319,7 @@ MonoBehaviour:
     actualSound: 0
   - name: PressAnyButton
     clip: {fileID: 8300000, guid: 97a52669a6023eb47842f61270dcdcc4, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 0
     audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
@@ -333,3 +333,51 @@ MonoBehaviour:
     audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
       type: 2}
     actualSound: 0
+  - name: VoixOurson1
+    clip: {fileID: 8300000, guid: 932542580bbd8274a9ffd254b776ece4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 2
+  - name: VoixOurson2
+    clip: {fileID: 8300000, guid: d8c8ef858c03b8f4dae2b8a715fbfac0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 2
+  - name: VoixOurson3
+    clip: {fileID: 8300000, guid: 203b93a16662e5a40bb404cebe81d018, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 2
+  - name: VoixOurson4
+    clip: {fileID: 8300000, guid: 29a30ec4f061377468b49c06589a9d6c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 2
+  - name: Frottement1
+    clip: {fileID: 8300000, guid: 50a219d9ed9cd52459dc1e35b952dac4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 3
+  - name: Frottement2
+    clip: {fileID: 8300000, guid: 5c8357849f784b34e94feebceeb527d1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: -6606945291303772705, guid: 19cd71325b5f0864884f076a16b2d0df,
+      type: 2}
+    actualSound: 3

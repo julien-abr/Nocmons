@@ -22,7 +22,7 @@ public class StartGame : MonoBehaviour
                 AudioManager.instance?.StopMusic("MenuMusic");
                 AudioManager.instance?.Play("PressAnyButton");
                 AudioManager.instance?.Play("BedRoomMusic1");
-                SceneManager.LoadScene("Julien");
+                SceneManager.LoadScene("GameScene");
                 _oneShot = true;
             }
         }
