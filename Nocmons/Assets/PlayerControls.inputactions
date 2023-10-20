@@ -82,7 +82,7 @@
                 {
                     "name": "",
                     "id": "cbf0a6be-d52b-4fe9-b7e9-446d9a86474c",
-                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button6",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button12",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -93,7 +93,7 @@
                 {
                     "name": "",
                     "id": "38ed260c-9d3d-4558-9bcf-a51ed64e79e1",
-                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button5",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button8",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -104,7 +104,7 @@
                 {
                     "name": "",
                     "id": "d456fa21-06a8-4064-9599-834235cc429e",
-                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button4",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button9",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -126,7 +126,7 @@
                 {
                     "name": "",
                     "id": "1ebdef8e-4cbc-4f0b-9fb1-b33a2ddb658e",
-                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button2",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button10",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -181,7 +181,7 @@
                 {
                     "name": "",
                     "id": "1d9344ac-6cb3-4f4c-8d45-34cd8408f94f",
-                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button3",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button11",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
