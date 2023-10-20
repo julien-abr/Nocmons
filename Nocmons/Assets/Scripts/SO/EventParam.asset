@@ -15,11 +15,11 @@ MonoBehaviour:
   EventPhases:
   - PhaseDuration: 180
     shadowParam:
-      minTimeBeforeSpawn: 6
-      maxTimeBeforeSpawn: 8
+      minTimeBeforeSpawn: 7
+      maxTimeBeforeSpawn: 9
       shadowSpawnPoint: 00000000
-      minTimeBeforeMoving: 7
-      maxTimeBeforeMoving: 9
+      minTimeBeforeMoving: 5
+      maxTimeBeforeMoving: 7
     lighteningParam:
       minTimeBeforeSpawn: 10
       maxTimeBeforeSpawn: 12

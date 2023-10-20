@@ -97,31 +97,32 @@ public class ShadowMovementV2 : MonoBehaviour
             case RotationState.Left:
                 if (!firstPoseDone)
                 {
-                    ShadowManager.instance._currentShadowLeft.SetActive(false);
-                    // ShadowManager.instance.shadowSpawn1[0].SetActive(true);
-                    ShadowManager.instance._currentShadowLeft = ShadowManager.instance.shadowSpawn1[0];
-                    ShadowManager.instance._currentShadowLeft.SetActive(true);
+                    ShadowManager.instance._currentShadowLeft[0].SetActive(false);
+                    ShadowManager.instance._currentShadowLeft[0] = null;
+                    
+                    ShadowManager.instance._currentShadowLeft[1] = ShadowManager.instance.shadowSpawn1[0];
+                    ShadowManager.instance._currentShadowLeft[1].SetActive(true);
                     firstPoseDone = true;
 
                 }
                 else if (firstPoseDone && !secondPoseDone)
                 {
-                    ShadowManager.instance._currentShadowLeft.SetActive(false);
-                    // ShadowManager.instance.shadowSpawn1[0].SetActive(false);
-                    // ShadowManager.instance.shadowSpawn2[0].SetActive(true);
-                    ShadowManager.instance._currentShadowLeft = ShadowManager.instance.shadowSpawn2[0];
-                    ShadowManager.instance._currentShadowLeft.SetActive(true);
+                    ShadowManager.instance._currentShadowLeft[1].SetActive(false);
+                    ShadowManager.instance._currentShadowLeft[1] = null;
+                    
+                    ShadowManager.instance._currentShadowLeft[2] = ShadowManager.instance.shadowSpawn2[0];
+                    ShadowManager.instance._currentShadowLeft[2].SetActive(true);
 
 
                     secondPoseDone = true;
                 }
                 else if (firstPoseDone && secondPoseDone && !thirdPoseDone)
                 {
-                    ShadowManager.instance._currentShadowLeft.SetActive(false);
-                    // ShadowManager.instance.shadowSpawn2[0].SetActive(false);
-                    // ShadowManager.instance.shadowSpawn3[0].SetActive(true);
-                    ShadowManager.instance._currentShadowLeft = ShadowManager.instance.shadowSpawn3[0];
-                    ShadowManager.instance._currentShadowLeft.SetActive(true);
+                    ShadowManager.instance._currentShadowLeft[2].SetActive(false);
+                    ShadowManager.instance._currentShadowLeft[2] = null;
+                    
+                    ShadowManager.instance._currentShadowLeft[3] = ShadowManager.instance.shadowSpawn3[0];
+                    ShadowManager.instance._currentShadowLeft[3].SetActive(true);
 
                     thirdPoseDone = true;
                 }
@@ -129,34 +130,33 @@ public class ShadowMovementV2 : MonoBehaviour
             case RotationState.Middle:
                 if (!firstPoseDone)
                 {
-                    ShadowManager.instance._currentShadowMidle.SetActive(false);
-                    // ShadowManager.instance.shadowSpawn1[1].SetActive(true);
-                    ShadowManager.instance._currentShadowMidle = ShadowManager.instance.shadowSpawn1[1];
-                    ShadowManager.instance._currentShadowMidle.SetActive(true);
+                    ShadowManager.instance._currentShadowMidle[0].SetActive(false);
+                    ShadowManager.instance._currentShadowMidle[0] = null;
+                    
+                    ShadowManager.instance._currentShadowMidle[1] = ShadowManager.instance.shadowSpawn1[1];
+                    ShadowManager.instance._currentShadowMidle[1].SetActive(true);
 
                     firstPoseDone = true;
 
                 }
                 else if (firstPoseDone && !secondPoseDone)
                 {
-                    ShadowManager.instance._currentShadowMidle.SetActive(false);
-
-                    ShadowManager.instance.shadowSpawn1[1].SetActive(false);
-                    // ShadowManager.instance.shadowSpawn2[1].SetActive(true);
-                    ShadowManager.instance._currentShadowMidle = ShadowManager.instance.shadowSpawn2[1];
-                    ShadowManager.instance._currentShadowMidle.SetActive(true);
+                    ShadowManager.instance._currentShadowMidle[1].SetActive(false);
+                    ShadowManager.instance._currentShadowMidle[1] = null;
+                    
+                    ShadowManager.instance._currentShadowMidle[2] = ShadowManager.instance.shadowSpawn2[1];
+                    ShadowManager.instance._currentShadowMidle[2].SetActive(true);
 
 
                     secondPoseDone = true;
                 }
                 else if (firstPoseDone && secondPoseDone && !thirdPoseDone)
                 {
-                    ShadowManager.instance._currentShadowMidle.SetActive(false);
-                    // ShadowManager.instance.shadowSpawn2[1].SetActive(false);
-                    // ShadowManager.instance.shadowSpawn3[1].SetActive(true);
-                    ShadowManager.instance._currentShadowMidle = ShadowManager.instance.shadowSpawn3[1];
-
-                    ShadowManager.instance._currentShadowMidle.SetActive(true);
+                    ShadowManager.instance._currentShadowMidle[2].SetActive(false);
+                    ShadowManager.instance._currentShadowMidle[2] = null;
+                    
+                    ShadowManager.instance._currentShadowMidle[3] = ShadowManager.instance.shadowSpawn3[1];
+                    ShadowManager.instance._currentShadowMidle[3].SetActive(true);
 
 
                     thirdPoseDone = true;
@@ -165,34 +165,34 @@ public class ShadowMovementV2 : MonoBehaviour
             case RotationState.Right:
                 if (!firstPoseDone)
                 {
-                    ShadowManager.instance._currentShadowRight.SetActive(false);
-                    // ShadowManager.instance.shadowSpawn1[2].SetActive(true);
-                    ShadowManager.instance._currentShadowRight = ShadowManager.instance.shadowSpawn1[2];
-                    ShadowManager.instance._currentShadowRight.SetActive(true);
+                    ShadowManager.instance._currentShadowRight[0].SetActive(false);
+                    ShadowManager.instance._currentShadowRight[0] = null;
+                    
+                    ShadowManager.instance._currentShadowRight[1] = ShadowManager.instance.shadowSpawn1[2];
+                    ShadowManager.instance._currentShadowRight[1].SetActive(true);
 
                     firstPoseDone = true;
 
                 }
                 else if (firstPoseDone && !secondPoseDone)
                 {
-                    ShadowManager.instance._currentShadowRight.SetActive(false);
+                    ShadowManager.instance._currentShadowRight[1].SetActive(false);
+                    ShadowManager.instance._currentShadowRight[1] = null;
 
-                    // ShadowManager.instance.shadowSpawn1[2].SetActive(false);
-                    // ShadowManager.instance.shadowSpawn2[2].SetActive(true);
-                    ShadowManager.instance._currentShadowRight = ShadowManager.instance.shadowSpawn2[2];
-                    ShadowManager.instance._currentShadowRight.SetActive(true);
+                    
+                    ShadowManager.instance._currentShadowRight[2] = ShadowManager.instance.shadowSpawn2[2];
+                    ShadowManager.instance._currentShadowRight[2].SetActive(true);
 
 
                     secondPoseDone = true;
                 }
                 else if (firstPoseDone && secondPoseDone && !thirdPoseDone)
                 {
-                    ShadowManager.instance._currentShadowRight.SetActive(false);
-
-                    // ShadowManager.instance.shadowSpawn2[2].SetActive(false);
-                    ShadowManager.instance._currentShadowRight = ShadowManager.instance.shadowSpawn3[2];
-                    // ShadowManager.instance.shadowSpawn3[2].SetActive(true);
-                    ShadowManager.instance._currentShadowRight.SetActive(true);
+                    ShadowManager.instance._currentShadowRight[2].SetActive(false);
+                    ShadowManager.instance._currentShadowRight[2] = null;
+                    
+                    ShadowManager.instance._currentShadowRight[3] = ShadowManager.instance.shadowSpawn3[2];
+                    ShadowManager.instance._currentShadowRight[3].SetActive(true);
 
                     thirdPoseDone = true;
                 }
@@ -269,22 +269,52 @@ public class ShadowMovementV2 : MonoBehaviour
         {
             if (_bearState.CurrentRot == RotationState.Left)
             {
-                if (ShadowManager.instance._currentShadowLeft != null)
+                if (ShadowManager.instance._currentShadowLeft[0] != null)
                 {
-                    ShadowManager.instance._currentShadowLeft.SetActive(false);
-                    ShadowManager.instance._currentShadowLeft = null;
-                    Debug.Log("light a gauche");
+                    ShadowManager.instance._currentShadowLeft[0].SetActive(false);
+                    ShadowManager.instance._currentShadowLeft[0] = null;
 
+                }
+                if (ShadowManager.instance._currentShadowLeft[1] != null)
+                {
+                    ShadowManager.instance._currentShadowLeft[1].SetActive(false);
+                    ShadowManager.instance._currentShadowLeft[1] = null;
+                }
+                if (ShadowManager.instance._currentShadowLeft[2] != null)
+                {
+                    ShadowManager.instance._currentShadowLeft[2].SetActive(false);
+                    ShadowManager.instance._currentShadowLeft[2] = null;
+                }
+
+                if (ShadowManager.instance._currentShadowLeft[3] != null)
+                {
+                    ShadowManager.instance._currentShadowLeft[3].SetActive(false);
+                    ShadowManager.instance._currentShadowLeft[3] = null;
                 }
             }
             if (_bearState.CurrentRot == RotationState.Middle)
             {
-                if (ShadowManager.instance._currentShadowMidle != null)
+                if (ShadowManager.instance._currentShadowMidle[0] != null)
                 {
-                    ShadowManager.instance._currentShadowMidle.SetActive(false);
-                    ShadowManager.instance._currentShadowMidle = null;
-                    Debug.Log("light a milieu");
+                    ShadowManager.instance._currentShadowMidle[0].SetActive(false);
+                    ShadowManager.instance._currentShadowMidle[0] = null;
 
+                }
+                if (ShadowManager.instance._currentShadowMidle[1] != null)
+                {
+                    ShadowManager.instance._currentShadowMidle[1].SetActive(false);
+                    ShadowManager.instance._currentShadowMidle[1] = null;
+                }
+                if (ShadowManager.instance._currentShadowMidle[2] != null)
+                {
+                    ShadowManager.instance._currentShadowMidle[2].SetActive(false);
+                    ShadowManager.instance._currentShadowMidle[2] = null;
+                }
+
+                if (ShadowManager.instance._currentShadowMidle[3] != null)
+                {
+                    ShadowManager.instance._currentShadowMidle[3].SetActive(false);
+                    ShadowManager.instance._currentShadowMidle[3] = null;
                 }
 
                     
@@ -292,12 +322,27 @@ public class ShadowMovementV2 : MonoBehaviour
 
             if (_bearState.CurrentRot == RotationState.Right)
             {
-                if (ShadowManager.instance._currentShadowRight != null)
+                if (ShadowManager.instance._currentShadowRight[0] != null)
                 {
-                    ShadowManager.instance._currentShadowRight.SetActive(false);
-                    ShadowManager.instance._currentShadowRight = null;
-                    Debug.Log("light a droite");
+                    ShadowManager.instance._currentShadowRight[0].SetActive(false);
+                    ShadowManager.instance._currentShadowRight[0] = null;
 
+                }
+                if (ShadowManager.instance._currentShadowRight[1] != null)
+                {
+                    ShadowManager.instance._currentShadowRight[1].SetActive(false);
+                    ShadowManager.instance._currentShadowRight[1] = null;
+                }
+                if (ShadowManager.instance._currentShadowRight[2] != null)
+                {
+                    ShadowManager.instance._currentShadowRight[2].SetActive(false);
+                    ShadowManager.instance._currentShadowRight[2] = null;
+                }
+
+                if (ShadowManager.instance._currentShadowRight[3] != null)
+                {
+                    ShadowManager.instance._currentShadowRight[3].SetActive(false);
+                    ShadowManager.instance._currentShadowRight[3] = null;
                 }
                 
             }

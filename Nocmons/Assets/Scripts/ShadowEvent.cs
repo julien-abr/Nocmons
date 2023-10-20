@@ -65,19 +65,19 @@ public class ShadowEvent : Event
         {
             case 0:
                 _spawnRot = RotationState.Left;
-                ShadowManager.instance._currentShadowLeft = ShadowManager.instance.shadowSpawn[spawnInt];
-                ShadowManager.instance._currentShadowLeft.SetActive(true);
+                ShadowManager.instance._currentShadowLeft[0] = ShadowManager.instance.shadowSpawn[spawnInt];
+                ShadowManager.instance._currentShadowLeft[0].SetActive(true);
                 break;
             case 1:
                 _spawnRot = RotationState.Middle;
-                ShadowManager.instance._currentShadowMidle = ShadowManager.instance.shadowSpawn[spawnInt];
-                ShadowManager.instance._currentShadowMidle.SetActive(true);
+                ShadowManager.instance._currentShadowMidle[0] = ShadowManager.instance.shadowSpawn[spawnInt];
+                ShadowManager.instance._currentShadowMidle[0].SetActive(true);
 
                 break;
             case 2:
                 _spawnRot = RotationState.Right;
-                ShadowManager.instance._currentShadowRight = ShadowManager.instance.shadowSpawn[spawnInt];
-                ShadowManager.instance._currentShadowRight.SetActive(true);
+                ShadowManager.instance._currentShadowRight[0] = ShadowManager.instance.shadowSpawn[spawnInt];
+                ShadowManager.instance._currentShadowRight[0].SetActive(true);
 
                 break;
             default:

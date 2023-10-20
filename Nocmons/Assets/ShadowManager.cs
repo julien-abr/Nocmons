@@ -12,9 +12,9 @@ public class ShadowManager : MonoBehaviour
     public List<GameObject> shadowSpawn3;
 
 
-    public GameObject _currentShadowLeft;
-    public GameObject _currentShadowMidle;
-    public GameObject _currentShadowRight;
+    public GameObject[] _currentShadowLeft = new GameObject[4];
+    public GameObject[] _currentShadowMidle = new GameObject[4];
+    public GameObject[] _currentShadowRight = new GameObject[4];
     
     private void Awake()
     {
@@ -22,5 +22,6 @@ public class ShadowManager : MonoBehaviour
         {
             instance = this;
         }
+        
     }
 }
