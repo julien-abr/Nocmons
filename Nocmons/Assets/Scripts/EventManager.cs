@@ -93,13 +93,13 @@ public class EventManager : MonoBehaviour
         switch (eventType)
         {
             case EventType.Lightning:
-                GameObject EventLightning = Instantiate(lightningEvent, transform.position, Quaternion.identity);
+                GameObject EventLightning = Instantiate(lightningEvent, eventParameter.tunderSpawn[tunderSpawn()].transform.position, eventParameter.tunderSpawn[tunderSpawn()].transform.rotation);
                 AudioManager.instance?.Play("LightningNear");
                 EventLightning.transform.parent = eventParent.transform;
                 EventLightning.GetComponent<LightningEvent>().Init();
                 break;
             case EventType.Shadow:
-                GameObject EventShadow = Instantiate(ShadowEvent, eventParameter.tunderSpawn[tunderSpawn()].transform.position, Quaternion.identity);
+                GameObject EventShadow = Instantiate(ShadowEvent, transform.position, Quaternion.identity);
                 AudioManager.instance?.Play("ShadowSpawn");
                 EventShadow.transform.parent = eventParent.transform;
                 EventShadow.GetComponent<ShadowEvent>().Init(_currentPhase);

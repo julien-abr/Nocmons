@@ -66,9 +66,9 @@ MonoBehaviour:
   lighteningTimeBeforeDmg: 2
   lighteningFearPercent: 20
   tunderSpawn:
-  - {fileID: 8534935974061419049, guid: 2ef499c2aff28384b8d31eea35ba9b81, type: 3}
-  - {fileID: 3033512287307574037, guid: dd780680d0798c54c9a69c8a48cf1aa3, type: 3}
-  - {fileID: 1074117706282677788, guid: d2ebd30a69cb9f64692b271f74b463df, type: 3}
+  - {fileID: 8836083688817091196, guid: bf2c93c27d7a96744a53ef65149ddb59, type: 3}
+  - {fileID: 5067918739198046635, guid: 92c119b775a0f834e9007691259db451, type: 3}
+  - {fileID: 2675057627096852588, guid: 6886b99b5e07de141b6eed473e0f69a9, type: 3}
   lightOnTime: 1
   lightNumberOfBattery: 4
   lightTimeBeforeRecharging: 10
