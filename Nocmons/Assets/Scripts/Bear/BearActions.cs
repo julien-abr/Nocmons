@@ -45,6 +45,7 @@ public class BearActions : MonoBehaviour, IBearActions
         {
             _canUseInputs = false;
             EventChestBtn?.Invoke();
+            AudioManager.instance.PlayRandom(SoundState.FROTTEMENT);
         }
         
     }
@@ -103,6 +104,7 @@ public class BearActions : MonoBehaviour, IBearActions
         if (_canUseInputs && !_isDie)
         {
             EventHeadBtn?.Invoke();
+            AudioManager.instance.PlayRandom(SoundState.HEAD);
         }
     }
 
