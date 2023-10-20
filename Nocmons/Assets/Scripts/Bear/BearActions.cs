@@ -28,10 +28,10 @@ public class BearActions : MonoBehaviour, IBearActions
         _bearReference.Instance.GetComponent<BearState>().OnDied += Dead;
         _controls.Gameplay.chestButton.performed += ctx => ChestBtn();
         _controls.Gameplay.chestButton.canceled += ctx => CanceledChestBtn();
-        _controls.Gameplay.eyesLeftButton.performed += ctx => ShowLeftEye();
-        _controls.Gameplay.eyesRightButton.performed += ctx => ShowRightEye();
-        _controls.Gameplay.eyesLeftButton.canceled += ctx => HideLeftEye();
-        _controls.Gameplay.eyesRightButton.canceled += ctx => HideRightEye();
+        _controls.Gameplay.eyesLeftButton.performed += ctx => HideLeftEye();
+        _controls.Gameplay.eyesRightButton.performed += ctx => HideRightEye();
+        _controls.Gameplay.eyesLeftButton.canceled += ctx => ShowLeftEye();
+        _controls.Gameplay.eyesRightButton.canceled += ctx => ShowRightEye();
         _controls.Gameplay.handButton.performed += ctx => HandBtn();
         _controls.Gameplay.headButton.performed += ctx => HeadBtn();
         _controls.Gameplay.RotateCamLeft.performed += ctx => CamRotLeft();
